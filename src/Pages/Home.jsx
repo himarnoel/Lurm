@@ -5,10 +5,10 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 const Home = () => {
   const [array, setarray] = React.useState([
-    "dfsdfa",
-    "sdfasdfa",
-    "sdafsdf",
-    "fsdfasdfa",
+    "1",
+    "2",
+    "3",
+    "4",
   ]);
   return (
     <div className="max-w-[1240px] h-full   lg:mx-auto  flex justify-center items-center flex-col">
