@@ -9,6 +9,10 @@ const Home = () => {
     "2",
     "3",
     "4",
+    "5",
+    "6",
+    "7",
+    "8",
   ]);
   return (
     <div className="max-w-[1240px] h-full   lg:mx-auto  flex justify-center items-center flex-col">
@@ -20,19 +24,20 @@ const Home = () => {
         Resource Manager
       </p>
       {/* Search  */}
-      <div className="bg-white h-26 w-[90vw] h-10 flex justify-center items-center shadow-xl rounded-lg ">
-        <div class="absolute  left-2 bottom- flex items-center pl-3 ml-2">
+      <div className="bg-white h-26 w-[90vw] h-10 flex justify-center items-center shadow-xl rounded-lg  mt-10 ">
+        <div class="absolute  left-2 bottom- flex items-center pl-3 ml-2 rounded-lg">
           <FiSearch size={22} color="green" />
         </div>
         <input
           type="text"
           id="name"
-          className=" text-gray-900 text-sm rounded-lg  block w-full pl-10 py-2.5  "
+          className=" text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg   "
           placeholder="search past questions by course code"
         />
       </div>
-      <div className="bg-white  w-[90vw] mt-5 flex flex-col  ">
-        <div className="flex justify-evenly items-center text-[12px] mt-2  w-[90vw] border-b-[0.1px]  border-gray-200  ">
+      {/* List */}
+      <div className="bg-white w-[90vw] mt-5 flex flex-col rounded-lg   ">
+        <div className="flex justify-evenly items-center text-[12px] mt-2 text-gray-500  w-[90vw] border-b-[0.1px]  border-gray-200  ">
           <p>course</p>
           <p>Semester</p>
           <p>Level</p>
@@ -41,18 +46,20 @@ const Home = () => {
             <AiOutlineDownload className="mt-2" />
           </p>
         </div>
-      </div>
-      {array.map((i, ar) => (
-        <div className="flex justify-evenly items-center text-[12px]  w-[90vw] bg-white pt-3 ">
-          <p>CSC211</p>
-          <p>Alpha</p>
-          <p>200</p>
-          <p>2022/2023</p>
-          <p>
-            <AiOutlineDownload onClick={() => alert("helloo")} />
-          </p>
+        <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
+          {array.map((arr, i) => (
+            <div className="flex justify-evenly items-center text-[12px]  w-[90vw] bg-white pt-3 rounded-lg text-black  font-bold ">
+              <p>CSC211</p>
+              <p>Alpha</p>
+              <p>200</p>
+              <p>2022/2023</p>
+              <p>
+                <AiOutlineDownload onClick={() => alert("helloo")} size="16"/>
+              </p>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
