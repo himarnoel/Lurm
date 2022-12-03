@@ -15,7 +15,7 @@ const Home = () => {
     "8",
   ]);
   return (
-    <div className="max-w-[1240px] h-full   lg:mx-auto  flex justify-center items-center flex-col">
+    <div className="max-w-[1240px] h-screen   lg:mx-auto  flex justify-center items-center flex-col">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
       <p className="text-xl lg:text-2xl font-bold text-black">
         Landmark University
@@ -26,7 +26,7 @@ const Home = () => {
       {/* Search  */}
       <div className="bg-white h-26 w-[90vw] h-10 flex justify-center items-center shadow-xl rounded-lg  mt-10 ">
         <div class="absolute  left-2 bottom- flex items-center pl-3 ml-2 rounded-lg">
-          <FiSearch size={22} color="green" />
+          <FiSearch size={22} color="green" className="sm:ml-4" />
         </div>
         <input
           type="text"
@@ -42,19 +42,30 @@ const Home = () => {
           <p>Semester</p>
           <p>Level</p>
           <p>Session</p>
-          <p className="">
+          <p className="sm:hidden">
             <AiOutlineDownload className="mt-2" />
           </p>
+          <span className="hidden sm:block">
+            <p className="flex  ">
+              Click
+              <AiOutlineDownload className="mt-[5px] mx-2" />
+              to download
+            </p>
+          </span>
         </div>
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
           {array.map((arr, i) => (
-            <div className="flex justify-evenly items-center text-[12px]  w-[90vw] bg-white pt-3 rounded-lg text-black  font-bold ">
+            <div className="flex justify-evenly items-center text-[12px]  w-[90vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold ">
               <p>CSC211</p>
               <p>Alpha</p>
               <p>200</p>
               <p>2022/2023</p>
               <p>
-                <AiOutlineDownload onClick={() => alert("helloo")} size="16"/>
+                <AiOutlineDownload
+                  onClick={() => alert("helloo")}
+                  size="16"
+                  className="sm:text-5xl"
+                />
               </p>
             </div>
           ))}
