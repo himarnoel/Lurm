@@ -2,28 +2,44 @@ import React from "react";
 import { GrDocumentUpload } from "react-icons/gr";
 import { RiArrowDownSLine } from "react-icons/ri";
 const Upload = () => {
+  const hiddenFileInput = React.useRef(null);
+  const handleClick = () => {
+    hiddenFileInput.current.click();
+  };
+  const handleChange = (e) => {
+    const fileUploaded = e.target.files[0];
+    console.log(fileUploaded);
+  };
   return (
-    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] lg:mx-auto  pt-5   md:pt-20">
+    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
       <div className="lg:mx-0 mx-auto ">
         <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
           Upload the PDF file with the information needed
         </h1>
 
-        <div className=" mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center">
+        <div
+          onClick={() => handleClick()}
+          className=" mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
+        >
           <GrDocumentUpload size={24} />
-
+          <input
+            type="file"
+            style={{ display: "none" }}
+            ref={hiddenFileInput}
+            onChange={handleChange}
+          />
           <p>Drop files here to upload</p>
           <p>or</p>
           <p>Click to Browse</p>
         </div>
       </div>
-      <div className="grid gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
+      <div className="grid lg:gap-x-12 xl:gap-x-0  gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
         <div className="">
           <label htmlFor="">Course</label>
           <div className="relative w-64">
             <input
               placeholder="e.g CSC211"
-              className="   border w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight text-[#D1D1D1]"
+              className=" text-gray-900  border w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
               id="inline-full-name"
               type="text"
             />
@@ -32,8 +48,10 @@ const Upload = () => {
         <div className="holder">
           <label htmlFor="">Semester</label>
           <div className="relative w-64">
-            <select className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight text-[#D1D1D1]">
-              <option>Select Semester</option>
+            <select className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900">
+              <option disabled={true}>
+                Select Semester
+              </option>
               <option className="text-black">Alpha</option>
               <option className="text-black">Omega</option>
             </select>
