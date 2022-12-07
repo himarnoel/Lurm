@@ -52,7 +52,7 @@ const Home = () => {
         </div>
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
           {/* {array.map((arr, i) => (
-            <div className="flex justify-evenly items-center text-[12px]    lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold ">
+            <div className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold ">
               <p>CSC{arr}11</p>
               <p>Alpha</p>
               <p>200</p>
