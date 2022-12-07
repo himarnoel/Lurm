@@ -5,14 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 const Home = () => {
   const [array, setarray] = React.useState([
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
+   
   ]);
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
@@ -35,7 +28,7 @@ const Home = () => {
         <input
           type="text"
           id="name"
-          className=" text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg   "
+          className=" text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
           placeholder="search past questions by course code"
         />
       </div>
@@ -58,7 +51,7 @@ const Home = () => {
           </span>
         </div>
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
-          {array.map((arr, i) => (
+          {/* {array.map((arr, i) => (
             <div className="flex justify-evenly items-center text-[12px]    lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold ">
               <p>CSC{arr}11</p>
               <p>Alpha</p>
@@ -72,7 +65,7 @@ const Home = () => {
                 />
               </p>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </div>
