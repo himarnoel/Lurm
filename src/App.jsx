@@ -9,8 +9,8 @@ function App() {
 
   return (
     <div className=" bg-[#F2F2F2] w-screen h-screen">
-      <Home/>
-      
+      {/* <Home/> */}
+      <Upload/>
     </div>
   )
 }
