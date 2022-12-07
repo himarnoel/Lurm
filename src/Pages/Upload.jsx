@@ -3,17 +3,15 @@ import { GrDocumentUpload } from "react-icons/gr";
 import { RiArrowDownSLine } from "react-icons/ri";
 const Upload = () => {
   return (
-    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] mx-auto lg:mx-auto  pt-5   md:pt-20">
+    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] lg:mx-auto  pt-5   md:pt-20">
       <div className="lg:mx-0 mx-auto ">
-        <h1 className="md:mb-14 text-center mb-3">
+        <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
           Upload the PDF file with the information needed
         </h1>
 
-        <div
-          onClick={() => alert("yes")}
-          className=" mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-72 rounded-lg flex flex-col justify-center items-center text-center"
-        >
+        <div className=" mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center">
           <GrDocumentUpload size={24} />
+
           <p>Drop files here to upload</p>
           <p>or</p>
           <p>Click to Browse</p>
@@ -82,7 +80,7 @@ const Upload = () => {
             </div>
           </div>
         </div>
-        <button className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-6 mt-5 lg:mt-0   ">
+        <button className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-6 mt-5 lg:mt-0  py-4 mb-6 ">
           Upload
         </button>
       </div>
