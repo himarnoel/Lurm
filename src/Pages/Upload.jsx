@@ -3,7 +3,7 @@ import { GrDocumentUpload } from "react-icons/gr";
 import { RiArrowDownSLine } from "react-icons/ri";
 const Upload = () => {
   return (
-    <div className="grid lg:grid-cols-2 max-w-[1240px] lg:mx-auto    pt-20">
+    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] mx-auto lg:mx-auto    pt-20">
       <div className="lg:mx-0 mx-auto ">
         <h1 className="mb-14">
           Upload the PDF file with the information needed
@@ -19,7 +19,7 @@ const Upload = () => {
           <p>Click to Browse</p>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
+      <div className="grid md:grid-cols-2  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
         <div className="">
           <label htmlFor="">Course</label>
           <div className="relative w-64">
@@ -36,8 +36,8 @@ const Upload = () => {
           <div className="relative w-64">
             <select className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight text-[#D1D1D1]">
               <option>Select Semester</option>
-              <option>Alpha</option>
-              <option>Omega</option>
+              <option className="text-black">Alpha</option>
+              <option className="text-black">Omega</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
@@ -51,11 +51,11 @@ const Upload = () => {
               placeholder="Select Semester"
               className=" appearance-none w-full  px-4 py-2 pr-8 rounded leading-tight text-[#D1D1D1] border"
             >
-              <option>100</option>
-              <option>200</option>
-              <option>300</option>
-              <option>400</option>
-              <option>500</option>
+              <option className="text-black">100</option>
+              <option className="text-black">200</option>
+              <option className="text-black">300</option>
+              <option className="text-black">400</option>
+              <option className="text-black">500</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
@@ -70,12 +70,12 @@ const Upload = () => {
               className=" appearance-none w-full  px-4 py-2 pr-8 rounded border  leading-tight text-[#D1D1D1]"
             >
               <option>Select Session</option>
-              <option>2010/2011</option>
-              <option>2011/2012</option>
-              <option>2012/2013</option>
-              <option>2013/2014</option>
-              <option>2014/2015</option>
-              <option>2015/2016</option>
+              <option className="text-black">2010/2011</option>
+              <option className="text-black">2011/2012</option>
+              <option className="text-black">2012/2013</option>
+              <option className="text-black">2013/2014</option>
+              <option className="text-black">2014/2015</option>
+              <option className="text-black">2015/2016</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
