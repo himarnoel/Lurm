@@ -7,3 +7,8 @@ body{
   font-family: 'Inter', sans-serif;
   background-color: #F2F2F2;
 }
+
+
+select:invalid{
+  color: gray;
+}

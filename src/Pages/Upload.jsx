@@ -11,7 +11,7 @@ const Upload = () => {
     console.log(fileUploaded);
   };
   return (
-    <div className="grid lg:grid-cols-2 lg:max-w-[1240px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
+    <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
       <div className="lg:mx-0 mx-auto ">
         <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
           Upload the PDF file with the information needed
@@ -33,7 +33,7 @@ const Upload = () => {
           <p>Click to Browse</p>
         </div>
       </div>
-      <div className="grid lg:gap-x-12 xl:gap-x-0  gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
+      <div className="grid lg:gap-x-12 xl:gap-x-12  gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
         <div className="">
           <label htmlFor="">Course</label>
           <div className="relative w-64">
@@ -48,8 +48,11 @@ const Upload = () => {
         <div className="holder">
           <label htmlFor="">Semester</label>
           <div className="relative w-64">
-            <select className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900">
-              <option disabled={true}>
+            <select
+              required
+              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+            >
+              <option value="" disabled selected hidden className=" ">
                 Select Semester
               </option>
               <option className="text-black">Alpha</option>
@@ -64,16 +67,19 @@ const Upload = () => {
           <label htmlFor="">Level</label>
           <div className="relative w-64">
             <select
-              placeholder="Select Semester"
-              className=" appearance-none w-full  px-4 py-2 pr-8 rounded leading-tight text-[#D1D1D1] border"
+              required
+              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
             >
+              <option value="" disabled selected hidden className=" ">
+                Select Level
+              </option>
               <option className="text-black">100</option>
               <option className="text-black">200</option>
               <option className="text-black">300</option>
               <option className="text-black">400</option>
               <option className="text-black">500</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
             </div>
           </div>
@@ -82,10 +88,12 @@ const Upload = () => {
           <label htmlFor="">Session</label>
           <div className="relative w-64">
             <select
-              placeholder="Select Semester"
-              className=" appearance-none w-full  px-4 py-2 pr-8 rounded border  leading-tight text-[#D1D1D1]"
+              required
+              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
             >
-              <option>Select Session</option>
+              <option value="" disabled selected hidden className=" ">
+                Select Session
+              </option>
               <option className="text-black">2010/2011</option>
               <option className="text-black">2011/2012</option>
               <option className="text-black">2012/2013</option>
