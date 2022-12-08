@@ -26,28 +26,30 @@ const Home = () => {
         <input
           type="text"
           id="name"
-          className=" text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
+          className=" focus:outline-white  text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
           placeholder="search past questions by course code"
         />
       </div>
       {/* List */}
       <div className=" w-[90vw] lg:w-[82vw] bg-white  xl:w-[75vw]  mt-5 flex flex-col rounded-lg   ">
-        <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
-          <p>Course</p>
-          <p>Semester</p>
-          <p>Level</p>
-          <p>Session</p>
-          <p className="sm:hidden">
-            <AiOutlineDownload className="mt-2" />
+       {
+        array.length!=0? <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
+        <p>Course</p>
+        <p>Semester</p>
+        <p>Level</p>
+        <p>Session</p>
+        <p className="sm:hidden">
+          <AiOutlineDownload className="mt-2" />
+        </p>
+        <span className="hidden sm:block">
+          <p className="flex  ">
+            Click
+            <AiOutlineDownload className="mt-[5px] mx-2" />
+            to download
           </p>
-          <span className="hidden sm:block">
-            <p className="flex  ">
-              Click
-              <AiOutlineDownload className="mt-[5px] mx-2" />
-              to download
-            </p>
-          </span>
-        </div>
+        </span>
+      </div>:""
+       }
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
           {array.map((arr, i) => (
             <div
