@@ -107,7 +107,7 @@ const Upload = () => {
             </div>
           </div>
         </div>
-        <button className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-6 mt-5 lg:mt-0  py-4 mb-6 ">
+        <button className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-2 mt-5 lg:mt-0  py-4 mb-6 ">
           Upload
         </button>
       </div>
