@@ -4,9 +4,7 @@ import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 const Home = () => {
-  const [array, setarray] = React.useState([
-   
-  ]);
+  const [array, setarray] = React.useState([]);
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
@@ -51,8 +49,11 @@ const Home = () => {
           </span>
         </div>
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
-          {/* {array.map((arr, i) => (
-            <div className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold ">
+          {array.map((arr, i) => (
+            <div
+              key={i}
+              className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold "
+            >
               <p>CSC{arr}11</p>
               <p>Alpha</p>
               <p>200</p>
@@ -65,7 +66,7 @@ const Home = () => {
                 />
               </p>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
