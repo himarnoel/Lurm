@@ -4,7 +4,8 @@ import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
-import fileDownload from "js-file-download";
+
+import { saveAs } from "file-saver";
 const Home = () => {
   const [array, setarray] = React.useState([]);
 
@@ -22,8 +23,9 @@ const Home = () => {
         }
       });
   };
-  const download = (file) => {
-    fileDownload(file, "downloaded.png");
+  const Download = (file) => {
+    saveAs(file.questionFile, `${file.courseCode}.png`);
+    console.log(file.questionFile);
   };
 
   return (
@@ -86,7 +88,7 @@ const Home = () => {
               <p>{arr.session}</p>
               <p className="">
                 <AiOutlineDownload
-                  onClick={() => alert("helloo")}
+                  onClick={() => Download(arr)}
                   size="16"
                   className="sm:text-5xl "
                 />
