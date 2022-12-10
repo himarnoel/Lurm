@@ -1,11 +1,17 @@
-import React from "react";
+import { React, useState } from "react";
 import { GrDocumentUpload } from "react-icons/gr";
 import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
+import axios from "axios";
 const Upload = () => {
   const hiddenFileInput = React.useRef(null);
-  const [error, userror] = React.useState("");
-  const [success, usesuccess] = React.useState("");
+  const [error, userror] = useState("");
+  const [success, usesuccess] = useState("");
+  const [courseCode, setcourseCode] = useState("");
+  const [semester, setsemester] = useState("");
+  const [session, setsession] = useState("");
+  const [questionFile, setquestionFile] = useState("");
+
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
@@ -15,10 +21,19 @@ const Upload = () => {
     console.log(conver);
     if (conver > 1.0) {
       userror("Upload file less than 1mb");
-    } else {
-      console.log("fileupload");
-      usesuccess("");
     }
+  };
+  const upload = () => {
+    axios
+      .post(" https://lurm-backend.onrender.com/api/v1/pastquestion/upload/", {
+        courseCode,
+        semester,
+        level,
+        session,
+        questionFile,
+      })
+      .then()
+      .catch();
   };
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">

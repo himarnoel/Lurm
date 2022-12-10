@@ -21,6 +21,9 @@ const Home = () => {
         } else {
           setarray([]);
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   const Download = (file) => {
