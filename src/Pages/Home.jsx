@@ -3,10 +3,20 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
+import axios from "axios";
 const Home = () => {
   const [array, setarray] = React.useState([]);
-  const [search, setsearch] = React.useState("");
-  const Search = () => {};
+
+  const Search = (val) => {
+    axios
+      .get(
+        ` https://lurm-backend.onrender.com/api/v1/pastquestion/?search=${val}`
+      )
+      .then((res) => {
+        console.log(res);
+        // setarray(res.data);
+      });
+  };
 
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
@@ -31,7 +41,7 @@ const Home = () => {
           id="name"
           className=" focus:outline-white  text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
           placeholder="search past questions by course code"
-          onChange={(e) => setsearch(e.target.value)}
+          onChange={(e) => Search(e.target.value)}
         />
       </div>
       {/* List */}
@@ -62,10 +72,10 @@ const Home = () => {
               key={i}
               className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold "
             >
-              <p>CSC{arr}11</p>
-              <p>Alpha</p>
-              <p>200</p>
-              <p>2022/2023</p>
+              <p>{arr.courseCode}</p>
+              <p>{arr.semester}</p>
+              <p>{arr.level}</p>
+              <p>{arr.session}</p>
               <p className="">
                 <AiOutlineDownload
                   onClick={() => alert("helloo")}
