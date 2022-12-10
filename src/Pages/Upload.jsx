@@ -1,10 +1,18 @@
 import React from "react";
+import { useState, useRef } from "react";
 import { GrDocumentUpload } from "react-icons/gr";
 import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
+import axios from "axios";
 const Upload = () => {
-  const hiddenFileInput = React.useRef(null);
-  const [disp, usedisp] = React.useState("");
+  const hiddenFileInput = useRef(null);
+  const [disp, usedisp] = useState("");
+  const [courseCode, usecourseCode] = useState("");
+  const [semester, usesemester] = useState("");
+  const [level, uselevel] = useState("");
+  const [session, usesession] = useState("");
+  const [ questionFile, usequestionFile] = useState("");
+
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
@@ -18,8 +26,19 @@ const Upload = () => {
       console.log("fileupload");
     }
   };
+  const uploaded = () => {
+    axios.post(
+      " https://lurm-backend.onrender.com/api/v1/pastquestion/upload/",
+      {
+        courseCode,
+        semester,
+        level,
+        session,
+        questionFile,
+      }
+    );
+  };
 
-  
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
       {disp === "Upload file less than 1mb" ? (
@@ -88,11 +107,11 @@ const Upload = () => {
               <option value="" disabled selected hidden className=" ">
                 Select Level
               </option>
-              <option className="text-black">100</option>
-              <option className="text-black">200</option>
-              <option className="text-black">300</option>
-              <option className="text-black">400</option>
-              <option className="text-black">500</option>
+              <option className="text-black" value={100}>100</option>
+              <option className="text-black"  value={200}>200</option>
+              <option className="text-black"  value={300}>300</option>
+              <option className="text-black"  value={400}>400</option>
+              <option className="text-black"  value={500}>500</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
@@ -109,12 +128,12 @@ const Upload = () => {
               <option value="" disabled selected hidden className=" ">
                 Select Session
               </option>
-              <option className="text-black">2010/2011</option>
-              <option className="text-black">2011/2012</option>
-              <option className="text-black">2012/2013</option>
-              <option className="text-black">2013/2014</option>
-              <option className="text-black">2014/2015</option>
-              <option className="text-black">2015/2016</option>
+              <option className="text-black" value={2010/2011}>2010/2011</option>
+              <option className="text-black" value={2011/2012}>2011/2012</option>
+              <option className="text-black" value={2012/2013}>2012/2013</option>
+              <option className="text-black" value={2013/2014}>2013/2014</option>
+              <option className="text-black" value={2014/2015}>2014/2015</option>
+              <option className="text-black" value={2015/2016}>2015/2016</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
