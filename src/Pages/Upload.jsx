@@ -1,17 +1,10 @@
-import { React, useState } from "react";
+import React from "react";
 import { GrDocumentUpload } from "react-icons/gr";
 import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
-import axios from "axios";
 const Upload = () => {
   const hiddenFileInput = React.useRef(null);
-  const [error, userror] = useState("");
-  const [success, usesuccess] = useState("");
-  const [courseCode, setcourseCode] = useState("");
-  const [semester, setsemester] = useState("");
-  const [session, setsession] = useState("");
-  const [questionFile, setquestionFile] = useState("");
-
+  const [disp, usedisp] = React.useState("");
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
@@ -20,31 +13,19 @@ const Upload = () => {
     let conver = fileUploaded.size / 1000000;
     console.log(conver);
     if (conver > 1.0) {
-      userror("Upload file less than 1mb");
+      usedisp("Upload file less than 1mb");
+    } else {
+      console.log("fileupload");
     }
   };
-  const upload = () => {
-    axios
-      .post(" https://lurm-backend.onrender.com/api/v1/pastquestion/upload/", {
-        courseCode,
-        semester,
-        level,
-        session,
-        questionFile,
-      })
-      .then()
-      .catch();
-  };
+
+  
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
-      {error === "Upload file less than 1mb" ? (
-        <div className="col-span-2 bg-black text-center text-white px-10">
-          {error}
-        </div>
+      {disp === "Upload file less than 1mb" ? (
+        <div className="col-span-2 bg-black text-center text-white"> disp</div>
       ) : (
-        <div className="col-span-2 bg-black text-center text-white px-10">
-          {success}
-        </div>
+        ""
       )}
       <div className="lg:mx-0 mx-auto ">
         <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
