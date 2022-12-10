@@ -89,8 +89,8 @@ const Upload = () => {
               <option value="" disabled selected hidden className=" ">
                 Select Semester
               </option>
-              <option className="text-black">Alpha</option>
-              <option className="text-black">Omega</option>
+              <option className="text-black" value="Alpha">Alpha</option>
+              <option className="text-black"  value="Omega">Omega</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
@@ -107,11 +107,11 @@ const Upload = () => {
               <option value="" disabled selected hidden className=" ">
                 Select Level
               </option>
-              <option className="text-black" value={100}>100</option>
-              <option className="text-black"  value={200}>200</option>
-              <option className="text-black"  value={300}>300</option>
-              <option className="text-black"  value={400}>400</option>
-              <option className="text-black"  value={500}>500</option>
+              <option className="text-black" value="100">100</option>
+              <option className="text-black"  value="200">200</option>
+              <option className="text-black"  value="300">300</option>
+              <option className="text-black"  value="400">400</option>
+              <option className="text-black"  value="500">500</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2  text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
@@ -128,12 +128,12 @@ const Upload = () => {
               <option value="" disabled selected hidden className=" ">
                 Select Session
               </option>
-              <option className="text-black" value={2010/2011}>2010/2011</option>
-              <option className="text-black" value={2011/2012}>2011/2012</option>
-              <option className="text-black" value={2012/2013}>2012/2013</option>
-              <option className="text-black" value={2013/2014}>2013/2014</option>
-              <option className="text-black" value={2014/2015}>2014/2015</option>
-              <option className="text-black" value={2015/2016}>2015/2016</option>
+              <option className="text-black" value="2010/2011">2010/2011</option>
+              <option className="text-black" value="2011/2012">2011/2012</option>
+              <option className="text-black" value="2012/2013">2012/2013</option>
+              <option className="text-black" value="2013/2014">2013/2014</option>
+              <option className="text-black" value="2014/2015">2014/2015</option>
+              <option className="text-black" value="2015/2016">2015/2016</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
               <RiArrowDownSLine size={26} />
