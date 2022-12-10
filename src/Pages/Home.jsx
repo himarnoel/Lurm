@@ -80,7 +80,7 @@ const Home = () => {
           {array.map((arr, i) => (
             <div
               key={i}
-              className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold "
+              className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold pb-5 "
             >
               <p>{arr.courseCode}</p>
               <p>{arr.semester}</p>
