@@ -4,10 +4,11 @@ import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
+import {useEffect, useState} from 'react'
 
 import { saveAs } from "file-saver";
 const Home = () => {
-  const [array, setarray] = React.useState([]);
+  const [array, setarray] = useState([]);
 
   const Search = (val) => {
     axios

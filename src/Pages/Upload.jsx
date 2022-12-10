@@ -27,6 +27,11 @@ const Upload = () => {
     }
   };
   const uploaded = () => {
+   console.log( courseCode,
+    semester,
+    level,
+    session,
+    questionFile,);
     axios.post(
       " https://lurm-backend.onrender.com/api/v1/pastquestion/upload/",
       {
@@ -36,6 +41,7 @@ const Upload = () => {
         session,
         questionFile,
       }
+
     );
   };
 
@@ -73,6 +79,7 @@ const Upload = () => {
           <div className="relative w-64">
             <input
               placeholder="e.g CSC211"
+              onChange={(e)=> usecourseCode(e.target.value)}
               className=" text-gray-900  border w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
               id="inline-full-name"
               type="text"
@@ -83,6 +90,7 @@ const Upload = () => {
           <label htmlFor="">Semester</label>
           <div className="relative w-64">
             <select
+            onChange={(e)=>usesemester(e.target.value)}
               required
               className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
             >
@@ -101,6 +109,7 @@ const Upload = () => {
           <label htmlFor="">Level</label>
           <div className="relative w-64">
             <select
+            onChange={(e)=>{uselevel(e.target.value)}}
               required
               className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
             >
@@ -122,6 +131,7 @@ const Upload = () => {
           <label htmlFor="">Session</label>
           <div className="relative w-64">
             <select
+            onChange={(e)=>{usesession(e.target.value)}}
               required
               className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
             >
@@ -140,7 +150,7 @@ const Upload = () => {
             </div>
           </div>
         </div>
-        <button className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-2 mt-5 lg:mt-0  py-4 mb-6 ">
+        <button onClick={()=>uploaded()} className=" text-white bg-[#2E8B45] rounded md:col-span-2 md:px-20 md:py-5 lg:px-20 lg:py-2 mt-5 lg:mt-0  py-4 mb-6 ">
           Upload
         </button>
       </div>
