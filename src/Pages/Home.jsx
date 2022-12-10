@@ -6,6 +6,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 const Home = () => {
   const [array, setarray] = React.useState([]);
   const [search, setsearch] = React.useState("");
+  const Search = () => {};
 
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
