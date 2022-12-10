@@ -13,8 +13,12 @@ const Home = () => {
         ` https://lurm-backend.onrender.com/api/v1/pastquestion/?search=${val}`
       )
       .then((res) => {
-        console.log(res);
-        // setarray(res.data);
+        setarray(res.data);
+        // if (val != "") {
+        //   setarray(res.data);
+        // } else {
+        //   setarray([]);
+        // }
       });
   };
 
