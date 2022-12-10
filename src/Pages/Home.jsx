@@ -62,15 +62,9 @@ const Home = () => {
             <p>Semester</p>
             <p>Level</p>
             <p>Session</p>
-            <p className="sm:hidden">
-              <AiOutlineDownload className="mt-2" />
-            </p>
+            <p className="sm:hidden">download</p>
             <span className="hidden sm:block">
-              <p className="flex  ">
-                Click
-                <AiOutlineDownload className="mt-[5px] mx-2" />
-                to download
-              </p>
+              <p className="flex  ">Click to download</p>
             </span>
           </div>
         ) : (
@@ -86,13 +80,13 @@ const Home = () => {
               <p>{arr.semester}</p>
               <p>{arr.level}</p>
               <p>{arr.session}</p>
-              <p className="">
+              <a className="" href="">
                 <AiOutlineDownload
                   onClick={() => Download(arr)}
                   size="16"
                   className="sm:text-5xl "
                 />
-              </p>
+              </a>
             </div>
           ))}
         </div>
