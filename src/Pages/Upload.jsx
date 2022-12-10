@@ -4,15 +4,33 @@ import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 const Upload = () => {
   const hiddenFileInput = React.useRef(null);
+  const [error, userror] = React.useState("");
+  const [success, usesuccess] = React.useState("");
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
   const handleChange = (e) => {
     const fileUploaded = e.target.files[0];
-    console.log(fileUploaded);
+    let conver = fileUploaded.size / 1000000;
+    console.log(conver);
+    if (conver > 1.0) {
+      userror("Upload file less than 1mb");
+    } else {
+      console.log("fileupload");
+      usesuccess("");
+    }
   };
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
+      {error === "Upload file less than 1mb" ? (
+        <div className="col-span-2 bg-black text-center text-white px-10">
+          {error}
+        </div>
+      ) : (
+        <div className="col-span-2 bg-black text-center text-white px-10">
+          {success}
+        </div>
+      )}
       <div className="lg:mx-0 mx-auto ">
         <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
           Upload the PDF file with the information needed
