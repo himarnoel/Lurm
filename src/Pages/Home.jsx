@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
+import fileDownload from "js-file-download";
 const Home = () => {
   const [array, setarray] = React.useState([]);
 
@@ -13,13 +14,16 @@ const Home = () => {
         ` https://lurm-backend.onrender.com/api/v1/pastquestion/?search=${val}`
       )
       .then((res) => {
-        setarray(res.data);
-        // if (val != "") {
-        //   setarray(res.data);
-        // } else {
-        //   setarray([]);
-        // }
+        console.log(res);
+        if (val != "") {
+          setarray(res.data);
+        } else {
+          setarray([]);
+        }
       });
+  };
+  const download = (file) => {
+    fileDownload(file, "downloaded.png");
   };
 
   return (
