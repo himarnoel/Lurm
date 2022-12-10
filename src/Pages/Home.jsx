@@ -5,6 +5,7 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 const Home = () => {
   const [array, setarray] = React.useState([]);
+  const [search, setsearch] = React.useState("");
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
@@ -28,28 +29,31 @@ const Home = () => {
           id="name"
           className=" focus:outline-white  text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
           placeholder="search past questions by course code"
+          onChange={(e) => setsearch(e.target.value)}
         />
       </div>
       {/* List */}
       <div className=" w-[90vw] lg:w-[82vw] bg-white  xl:w-[75vw]  mt-5 flex flex-col rounded-lg   ">
-       {
-        array.length!==0? <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
-        <p>Course</p>
-        <p>Semester</p>
-        <p>Level</p>
-        <p>Session</p>
-        <p className="sm:hidden">
-          <AiOutlineDownload className="mt-2" />
-        </p>
-        <span className="hidden sm:block">
-          <p className="flex  ">
-            Click
-            <AiOutlineDownload className="mt-[5px] mx-2" />
-            to download
-          </p>
-        </span>
-      </div>:""
-       }
+        {array.length !== 0 ? (
+          <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
+            <p>Course</p>
+            <p>Semester</p>
+            <p>Level</p>
+            <p>Session</p>
+            <p className="sm:hidden">
+              <AiOutlineDownload className="mt-2" />
+            </p>
+            <span className="hidden sm:block">
+              <p className="flex  ">
+                Click
+                <AiOutlineDownload className="mt-[5px] mx-2" />
+                to download
+              </p>
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
         <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
           {array.map((arr, i) => (
             <div
