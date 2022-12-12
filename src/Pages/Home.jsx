@@ -1,16 +1,19 @@
 import React from "react";
-
+import loade from "../assets/load.gif";
 import logo from "../assets/logo.png";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 
 import { saveAs } from "file-saver";
+
 const Home = () => {
   const [array, setarray] = useState([]);
+  const [bol, setbol] = useState(false);
 
   const Search = (val) => {
+    setbol(true);
     axios
       .get(
         ` https://lurm-backend.onrender.com/api/v1/pastquestion/?search=${val}`
@@ -19,12 +22,15 @@ const Home = () => {
         console.log(res);
         if (val != "") {
           setarray(res.data);
+          setbol(false);
         } else {
           setarray([]);
+          setbol(false);
         }
       })
       .catch((error) => {
         console.log(error);
+        setbol(false);
       });
   };
   const Download = (file) => {
@@ -59,42 +65,48 @@ const Home = () => {
         />
       </div>
       {/* List */}
-      <div className=" w-[90vw] lg:w-[82vw] bg-white  xl:w-[75vw]  mt-5 flex flex-col rounded-lg   ">
-        {array.length !== 0 ? (
-          <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
-            <p>Course</p>
-            <p>Semester</p>
-            <p>Level</p>
-            <p>Session</p>
-            <p className="sm:hidden">download</p>
-            <span className="hidden sm:block">
-              <p className="flex  ">Click to download</p>
-            </span>
-          </div>
-        ) : (
-          ""
-        )}
-        <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
-          {array.map((arr, i) => (
-            <div
-              key={i}
-              className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold pb-5 "
-            >
-              <p>{arr.courseCode}</p>
-              <p>{arr.semester}</p>
-              <p>{arr.level}</p>
-              <p>{arr.session}</p>
-              <a className="" href="">
-                <AiOutlineDownload
-                  onClick={() => Download(arr)}
-                  size="16"
-                  className="sm:text-5xl "
-                />
-              </a>
+      {bol ? (
+        <img src={loade} alt="" className="w-10 object-contain mt-5" />
+      ) : (
+        <div>
+          <div className=" w-[90vw] lg:w-[82vw] bg-white  xl:w-[75vw]  mt-5 flex flex-col rounded-lg   ">
+            {array.length !== 0 ? (
+              <div className="flex justify-evenly bg-white  xl:w-auto xl:pl-10 items-center text-[12px] mt-2 text-gray-500 lg:text-base w-[90vw] border-b-[0.1px] lg:w-[82vw]  border-gray-200  ">
+                <p>Course</p>
+                <p>Semester</p>
+                <p>Level</p>
+                <p>Session</p>
+                <p className="sm:hidden">download</p>
+                <span className="hidden sm:block">
+                  <p className="flex  ">Click to download</p>
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            <div className=" max-h-[40vh]  overflow-y-scroll rounded-lg">
+              {array.map((arr, i) => (
+                <div
+                  key={i}
+                  className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold pb-5 "
+                >
+                  <p>{arr.courseCode}</p>
+                  <p>{arr.semester}</p>
+                  <p>{arr.level}</p>
+                  <p>{arr.session}</p>
+                  <a className="" href="">
+                    <AiOutlineDownload
+                      onClick={() => Download(arr)}
+                      size="16"
+                      className="sm:text-5xl "
+                    />
+                  </a>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
