@@ -16,7 +16,7 @@ const Home = () => {
     setbol(true);
     axios
       .get(
-        ` https://lurm-backend.onrender.com/api/v1/pastquestion/?search=${val}`
+        `https://lurm-backend-production.up.railway.app/api/v1/pastquestion/?search=${val}`
       )
       .then((res) => {
         console.log(res);
@@ -49,7 +49,7 @@ const Home = () => {
       </p>
       {/* Search  */}
       <div className="bg-white h-26 w-[90vw]  xl:w-[75vw]  lg:w-[82vw] h-10 flex justify-center items-center shadow-xl rounded-lg  mt-10 xl:mt-24 2xl:mt-28 md:mt-28">
-        <div class="absolute  left-2 bottom- flex items-center pl-3 ml-2 rounded-lg">
+        <div className="absolute  left-2 bottom- flex items-center pl-3 ml-2 rounded-lg">
           <FiSearch
             size={22}
             color="green"

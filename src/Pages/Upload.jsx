@@ -7,7 +7,6 @@ import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
 // import FormData from "form-data";
 
-
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -21,10 +20,15 @@ const Upload = () => {
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
-  const handleChange = (e) => {
-    const fileUploaded = e.target.files[0];
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(fileUploaded);
+    reader.onload = () => {
+      usequestionFile(reader.result);
+    };
+
     setfilename(fileUploaded.name);
-    usequestionFile(fileUploaded);
     let conver = fileUploaded.size / 1000000;
     console.log(conver);
     if (conver > 1.0) {
@@ -35,28 +39,24 @@ const Upload = () => {
     }
   };
   const uploaded = () => {
-    const  formData = new FormData();
     // console.log(formData);
-    formData.append("questionFile",questionFile);
-    console.log(formData);
-    console.log(questionFile.name);
- axios
+
+    console.log(questionFile);
+    axios
       .post(
-        " https://lurm-backend.onrender.com/api/v1/pastquestion/upload/",
+        "  https://lurm-backend-production.up.railway.app/api/v1/pastquestion/upload/",
         {
           courseCode,
           semester,
           level,
           session,
-        questionFile: formData ,
-        },
-     {
-      headers: {
-        "content-type": "multipart/form-data"
-      }
-    },
-        
-        
+          questionFile,
+        }
+        // {
+        //   headers: {
+        //     "content-type": "multipart/form-data",
+        //   },
+        // }
       )
       .then(function (response) {
         console.log(response);
@@ -69,7 +69,10 @@ const Upload = () => {
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
       {disp === "Upload file less than 1mb" ? (
-        <div className="lg:col-span-2 bg-black text-center text-white"> disp</div>
+        <div className="lg:col-span-2 bg-black text-center text-white">
+          {" "}
+          disp
+        </div>
       ) : (
         ""
       )}
