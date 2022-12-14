@@ -111,7 +111,7 @@ const Upload = () => {
   const [toast, settoast] = useState(false);
   setTimeout(() => {
     settoast(false);
-  }, 4000);
+  }, 7000);
 
   return (
     <>
