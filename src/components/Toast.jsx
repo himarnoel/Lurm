@@ -6,19 +6,19 @@ function Toaster(props) {
       <div className="relative" onClick={props.close}>
         <IoIosClose
           size={36}
-          className="absolute right-[1rem] z-10"
+          className="absolute right-[0.2rem] top-[0.2rem] z-10 "
           onClick={props.close}
         />
         <div
           className={
-            props.mess == "Upload sucessful"
+            props.mess == "Upload Sucessful"
               ? "bg-green-200 w-64 rounded-lg py-5  shadow-lg absolute right-1 top-1 "
               : "bg-red-200 w-64 rounded-lg py-5  shadow-lg absolute right-1 top-1 "
           }
         >
           <p
             className={
-              props.mess == "Upload sucessful"
+              props.mess == "Upload Sucessful"
                 ? "text-green-700 text-center"
                 : "text-red-700 text-center"
             }

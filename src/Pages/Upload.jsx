@@ -96,15 +96,15 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           if (response.status == 201) {
-            setmess("Upload sucessful");
+            setmess("Upload Sucessful");
           } else {
-            setmess("Upload error");
+            setmess("Upload Error");
           }
         })
         .catch((error) => {
           console.log(error);
           setbol(false);
-          setmess("Upload error");
+          setmess("Upload Error");
         });
     }
   };
