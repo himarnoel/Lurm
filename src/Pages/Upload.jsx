@@ -6,20 +6,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
 import loade from "../assets/load.gif";
-import { useFormik } from "formik";
-const formik = useFormik({
-  initialValues: {
-    courseCode: "",
-    semester: "",
-    level: "",
-    session: "",
-    questionFile: "",
-  },
-  validationSchema: basicSchema,
-  onSubmit: (values) => {
-    console.log(values);
-  },
-});
+
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -28,9 +15,19 @@ const Upload = () => {
   const [level, uselevel] = useState("");
   const [session, usesession] = useState("");
   const [questionFile, usequestionFile] = useState("");
+
   const [filename, setfilename] = useState("");
   const [bol, setbol] = useState(false);
+  /// For error
+  const [course, setcourse] = useState(false);
+  const [semes, setsemes] = useState(false);
+  const [lev, setlev] = useState(false);
+  const [ses, setses] = useState(false);
+  const [ques, setques] = useState(false);
+  ///////////
+
   const handleClick = () => {
+    setques(false);
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
@@ -53,28 +50,56 @@ const Upload = () => {
   };
   const uploaded = () => {
     // console.log(formData);
-    setbol(true);
-    console.log(questionFile);
-    axios
-      .post(
-        "  https://lurm-backend-production.up.railway.app/api/v1/pastquestion/upload/",
-        {
-          courseCode,
-          semester,
-          level,
-          session,
-          questionFile,
-        }
-      )
-      .then((response) => {
-        console.log(response);
-        setbol(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setbol(false);
-      });
-    console.log("");
+
+    if (courseCode == "") {
+      setcourse(true);
+    }
+    if (semester == "") {
+      setsemes(true);
+    }
+    if (level == "") {
+      setlev(true);
+    }
+    if (session == "") {
+      setses(true);
+    }
+    if (questionFile == "") {
+      setques(true);
+    }
+    if (
+      courseCode !== "" ||
+      semester !== "" ||
+      level !== "" ||
+      session !== "" ||
+      questionFile !== ""
+    ) {
+      setbol(true);
+      axios
+        .post(
+          "  https://lurm-backend-production.up.railway.app/api/v1/pastquestion/upload/",
+          {
+            courseCode,
+            semester,
+            level,
+            session,
+            questionFile,
+          }
+        )
+        .then((response) => {
+          console.log(response);
+          setbol(false);
+          usecourseCode(""); //to clear input
+          usesemester("");
+          uselevel("");
+          usequestionFile(""); // to remove file
+          usedisp(""); // to remove
+        })
+        .catch((error) => {
+          console.log(error);
+          setbol(false);
+        });
+      console.log("");
+    }
   };
 
   return (
@@ -100,7 +125,11 @@ const Upload = () => {
 
         <div
           onClick={() => handleClick()}
-          className=" mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
+          className={
+            ques
+              ? " mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-red-500 h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
+              : " mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
+          }
         >
           {disp == "ok" ? (
             <AiFillFile color="green" size={35} />
@@ -119,27 +148,41 @@ const Upload = () => {
           {disp != "ok" ? <p>Click to Browse</p> : ""}
           {disp == "ok" ? <p>{filename}</p> : ""}
         </div>
+        {ques ? <p className="text-red-500">Upload a file</p> : ""}
       </div>
       <div className="grid lg:gap-x-12 xl:gap-x-12  gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
         <div className="">
           <label htmlFor="">Course</label>
           <div className="relative w-64">
             <input
+              onClick={() => setcourse(false)}
               placeholder="e.g CSC211"
               onChange={(e) => usecourseCode(e.target.value)}
-              className=" text-gray-900  border w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
+              value={courseCode}
+              className={
+                course
+                  ? " text-gray-900  border border-red-500 focus:border-red-500 w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
+                  : " text-gray-900  border  w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
+              }
               id="inline-full-name"
               type="text"
             />
           </div>
+          {course ? <p className="text-red-500">Fill up this space</p> : ""}
         </div>
         <div className="holder">
           <label htmlFor="">Semester</label>
           <div className="relative w-64">
             <select
+              onClick={() => setsemes(false)}
               onChange={(e) => usesemester(e.target.value)}
+              value={semester}
               required
-              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              className={
+                semes
+                  ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                  : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              }
             >
               <option value="" disabled selected hidden className=" ">
                 Select Semester
@@ -155,16 +198,23 @@ const Upload = () => {
               <RiArrowDownSLine size={26} />
             </div>
           </div>
+          {semes ? <p className="text-red-500">Fill up this space</p> : ""}
         </div>
         <div className="holder">
           <label htmlFor="">Level</label>
           <div className="relative w-64">
             <select
+              value={level}
+              onClick={() => setlev(false)}
               onChange={(e) => {
                 uselevel(e.target.value);
               }}
               required
-              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              className={
+                lev
+                  ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                  : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              }
             >
               <option value="" disabled selected hidden className=" ">
                 Select Level
@@ -189,16 +239,22 @@ const Upload = () => {
               <RiArrowDownSLine size={26} />
             </div>
           </div>
+          {lev ? <p className="text-red-500">Fill up this space</p> : ""}
         </div>
         <div className="holder">
           <label htmlFor="">Session</label>
           <div className="relative w-64">
             <select
+              onClick={() => setses(false)}
               onChange={(e) => {
                 usesession(e.target.value);
               }}
               required
-              className=" appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              className={
+                ses
+                  ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                  : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+              }
             >
               <option value="" disabled selected hidden className=" ">
                 Select Session
@@ -226,6 +282,7 @@ const Upload = () => {
               <RiArrowDownSLine size={26} />
             </div>
           </div>
+          {ses ? <p className="text-red-500">Fill up this space</p> : ""}
         </div>
         <button
           onClick={() => uploaded()}
