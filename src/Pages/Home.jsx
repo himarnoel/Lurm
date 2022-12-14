@@ -34,7 +34,8 @@ const Home = () => {
       });
   };
   const Download = (file) => {
-    saveAs(file.questionFile, `${file.courseCode}.png`);
+    console.log(file.questionFile);
+    saveAs(file.questionFile, `${file.courseCode}`);
     console.log(file.questionFile);
   };
 
@@ -94,13 +95,12 @@ const Home = () => {
                   <p>{arr.semester}</p>
                   <p>{arr.level}</p>
                   <p>{arr.session}</p>
-                  <a className="" href="">
-                    <AiOutlineDownload
-                      onClick={() => Download(arr)}
-                      size="16"
-                      className="sm:text-5xl "
-                    />
-                  </a>
+
+                  <AiOutlineDownload
+                    onClick={() => Download(arr)}
+                    size="16"
+                    className="sm:text-5xl "
+                  />
                 </div>
               ))}
             </div>

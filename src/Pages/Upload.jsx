@@ -52,11 +52,6 @@ const Upload = () => {
           session,
           questionFile,
         }
-        // {
-        //   headers: {
-        //     "content-type": "multipart/form-data",
-        //   },
-        // }
       )
       .then(function (response) {
         console.log(response);
@@ -64,6 +59,7 @@ const Upload = () => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log("");
   };
 
   return (
