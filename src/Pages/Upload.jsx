@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
-// import FormData from "form-data";
+import loade from "../assets/load.gif";
 
 const Upload = () => {
   const hiddenFileInput = useRef(null);
@@ -16,7 +16,7 @@ const Upload = () => {
   const [session, usesession] = useState("");
   const [questionFile, usequestionFile] = useState("");
   const [filename, setfilename] = useState("");
-
+  const [bol, setbol] = useState(false);
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
@@ -40,7 +40,7 @@ const Upload = () => {
   };
   const uploaded = () => {
     // console.log(formData);
-
+    setbol(true);
     console.log(questionFile);
     axios
       .post(
@@ -53,17 +53,26 @@ const Upload = () => {
           questionFile,
         }
       )
-      .then(function (response) {
+      .then((response) => {
         console.log(response);
+        setbol(false);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
+        setbol(false);
       });
     console.log("");
   };
 
   return (
     <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
+      {bol ? (
+        <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-[140%] bg-white/75 left-0 right-0">
+          <img src={loade} alt="" srcset="" className="object-contain " />
+        </div>
+      ) : (
+        ""
+      )}
       {disp === "Upload file less than 1mb" ? (
         <div className="lg:col-span-2 bg-black text-center text-white">
           {" "}

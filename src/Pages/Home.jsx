@@ -41,6 +41,7 @@ const Home = () => {
 
   return (
     <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
+     
       <img src={logo} alt="" className="object-contain w-20 lg:" />
       <p className="text-xl lg:text-2xl font-bold text-black">
         Landmark University
