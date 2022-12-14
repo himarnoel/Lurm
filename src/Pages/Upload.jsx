@@ -6,7 +6,20 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
 import loade from "../assets/load.gif";
-
+import { useFormik } from "formik";
+const formik = useFormik({
+  initialValues: {
+    courseCode: "",
+    semester: "",
+    level: "",
+    session: "",
+    questionFile: "",
+  },
+  validationSchema: basicSchema,
+  onSubmit: (values) => {
+    console.log(values);
+  },
+});
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -75,7 +88,6 @@ const Upload = () => {
       )}
       {disp === "Upload file less than 1mb" ? (
         <div className="lg:col-span-2 bg-black text-center text-white">
-          {" "}
           disp
         </div>
       ) : (
