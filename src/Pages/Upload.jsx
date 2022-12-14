@@ -87,7 +87,7 @@ const Upload = () => {
           }
         )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           settoast(true); //show toast
           setbol(false); //stop loading
           usecourseCode(""); //to clear input
@@ -96,15 +96,24 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           if (response.status == 201) {
+            settoast(true);
             setmess("Upload Sucessful");
           } else {
+            settoast(true);
             setmess("Upload Error");
           }
         })
         .catch((error) => {
+
+          if (error.response.status == 400) {
+            settoast(true);
+            // setmess(error.response.statusText);
+            setmess("Can't Upload");
+              setbol(false);
+          } 
           console.log(error);
-          setbol(false);
-          setmess("Upload Error");
+        
+          
         });
     }
   };
@@ -116,10 +125,10 @@ const Upload = () => {
   return (
     <>
       {toast ? <Toaster mess={mess} close={() => settoast(false)} /> : ""}
-
-      <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-20">
+      
+      <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
         {bol ? (
-          <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-[140%] bg-white/75 left-0 right-0">
+          <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-screen bg-white/75 left-0 right-0">
             <img src={loade} alt="" srcset="" className="object-contain " />
           </div>
         ) : (

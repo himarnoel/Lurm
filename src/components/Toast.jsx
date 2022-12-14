@@ -3,7 +3,10 @@ import { IoIosClose } from "react-icons/io";
 function Toaster(props) {
   return (
     <>
-      <div className="relative" onClick={props.close}>
+      <div
+        className="relative top-64 right-[2rem] sm:top-0 sm:right-0"
+        onClick={props.close}
+      >
         <IoIosClose
           size={36}
           className="absolute right-[0.2rem] top-[0.2rem] z-10 "
