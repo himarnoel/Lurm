@@ -68,10 +68,10 @@ const Upload = () => {
       setques(true);
     }
     if (
-      courseCode !== "" ||
-      semester !== "" ||
-      level !== "" ||
-      session !== "" ||
+      courseCode !== "" &&
+      semester !== "" &&
+      level !== "" &&
+      session !== "" &&
       questionFile !== ""
     ) {
       setbol(true);
