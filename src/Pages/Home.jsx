@@ -9,7 +9,7 @@ import fileDownload from "js-file-download";
 import { saveAs } from "file-saver";
 
 const Home = () => {
-  const [array, setarray] = useState(["1", "2", "2", "2"]);
+  const [array, setarray] = useState([]);
   const [bol, setbol] = useState(false);
 
   const Search = (val) => {
