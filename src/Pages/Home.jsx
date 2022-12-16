@@ -41,7 +41,7 @@ const Home = () => {
   };
 
   return (
-    <div className=" h-screen w-screen  lg:mx-auto  flex  items-center flex-col pt-10">
+    <div className=" h-screen w-screen  lg:mx-auto  flex  items-center flex-col pt-16 lg:pt-10 sm:pt-32">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
       <p className="text-xl lg:text-2xl font-bold text-black">
         Landmark University
@@ -51,7 +51,7 @@ const Home = () => {
       </p>
       {/* Search  */}
 
-      <div className="relative w-[75%] mt-14">
+      <div className="relative w-[87%]  sm:w-[89%] lg:w-[82%] xl:w-[75%] mt-14">
         <FiSearch
           size={22}
           color="green"
@@ -88,7 +88,7 @@ const Home = () => {
               {array.map((arr, i) => (
                 <div
                   key={i}
-                  className="flex justify-evenly items-center text-[12px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-bold pb-5 "
+                  className="flex justify-evenly items-center text-[12px] lg:text-[15px] lg:w-[72vw] ml-2 w-[86vw] sm:w-[85vw]  bg-white pt-3 rounded-lg text-black  font-semibold pb-5 "
                 >
                   <p>{arr.courseCode}</p>
                   <p>{arr.semester}</p>
