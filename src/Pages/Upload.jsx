@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
+
 import loade from "../assets/load.gif";
 import Toaster from "../components/Toast";
 const Upload = () => {

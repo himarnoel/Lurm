@@ -5,11 +5,11 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import fileDownload from "js-file-download";
 import { saveAs } from "file-saver";
 
 const Home = () => {
-  const [array, setarray] = useState([]);
+  const [array, setarray] = useState(["1", "2", "2", "2"]);
   const [bol, setbol] = useState(false);
 
   const Search = (val) => {
@@ -35,13 +35,13 @@ const Home = () => {
   };
   const Download = (file) => {
     console.log(file.questionFile);
-    saveAs(file.questionFile, `${file.courseCode}`);
+    saveAs(file.questionFile, `${file.courseCode}.pdf`);
+    // fileDownload(file.questionFile, `${file.courseCode}`);
     console.log(file.questionFile);
   };
 
   return (
-    <div className=" h-screen w-screen  lg:mx-auto  flex justify-center items-center flex-col">
-     
+    <div className=" h-screen w-screen  lg:mx-auto  flex  items-center flex-col pt-10">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
       <p className="text-xl lg:text-2xl font-bold text-black">
         Landmark University
@@ -50,20 +50,18 @@ const Home = () => {
         Resource Manager
       </p>
       {/* Search  */}
-      <div className="bg-white h-26 w-[90vw]  xl:w-[75vw]  lg:w-[82vw] h-10 flex justify-center items-center shadow-xl rounded-lg  mt-10 xl:mt-24 2xl:mt-28 md:mt-28">
-        <div className="absolute  left-2 bottom- flex items-center pl-3 ml-2 rounded-lg">
-          <FiSearch
-            size={22}
-            color="green"
-            className="sm:ml-4 lg:ml-[4.5rem] xl:ml-[9.8rem] 2xl:ml-[10.9rem]"
-          />
-        </div>
+
+      <div className="relative w-[75%] mt-14">
+        <FiSearch
+          size={22}
+          color="green"
+          className="absolute top-0 bottom-0 w-6 h-6 my-auto text-gray-400 left-3"
+        />
         <input
-          type="text"
-          id="name"
-          className=" focus:outline-white  text-gray-900 text-sm rounded-  block w-full pl-10 py-2.5  rounded-lg focus:border-   "
           placeholder="search past questions by course code"
           onChange={(e) => Search(e.target.value)}
+          type="text"
+          className="w-full py-2 pl-12 pr-4 text-gray-500 border rounded-lg outline-none bg-gray-50 focus:bg-white focus:border-green-600"
         />
       </div>
       {/* List */}
