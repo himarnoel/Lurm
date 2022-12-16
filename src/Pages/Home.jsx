@@ -61,7 +61,7 @@ const Home = () => {
           placeholder="search past questions by course code"
           onChange={(e) => Search(e.target.value)}
           type="text"
-          className="w-full py-2 pl-12 pr-4 text-gray-500 border rounded-lg outline-none bg-gray-50 focus:bg-white focus:border-green-600"
+          className="w-full py-2 pl-12 pr-4 text-black border rounded-lg outline-none bg-gray-50 focus:bg-white focus:border-green-600"
         />
       </div>
       {/* List */}
