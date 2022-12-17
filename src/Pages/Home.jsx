@@ -74,7 +74,7 @@ const Home = () => {
       ) : (
         <div className="md:mt-5 mt-3">
           {array.length !== 0 ? (
-            <div className="overflow-y-auto lg:w-fit max-h-[40vh] w-[90vw] rounded-md ">
+            <div className="overflow-y-auto lg:w-fit max-h-[40vh] w-[90vw] rounded-md  bg-white">
               <table className="table-auto lg:w-[890px] xl:w-[1020px] w-[90vw]  bg-white text-center ">
                 <thead className="border-b sticky top-0  bg-white font-normal text-xs md:text-base">
                   <tr>
@@ -109,10 +109,12 @@ const Home = () => {
                         {arr.session}
                       </td>
                       <td className="py-2 px-3 md:px-4 lg:px-6">
-                        <AiOutlineDownload
-                          onClick={() => Download(arr)}
-                          className="mx-auto"
-                        />
+                        <a href="#">
+                          <AiOutlineDownload
+                            onClick={() => Download(arr)}
+                            className="mx-auto"
+                          />
+                        </a>
                       </td>
                     </tr>
                   ))}
