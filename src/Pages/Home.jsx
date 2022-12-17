@@ -94,7 +94,7 @@ const Home = () => {
                   <p>{arr.semester}</p>
                   <p>{arr.level}</p>
                   <p>{arr.session}</p>
-                  <a href={arr.questionFile}>Dowload</a>
+                
                   <AiOutlineDownload
                     onClick={() => Download(arr)}
                     size="16"
