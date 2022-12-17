@@ -12,7 +12,9 @@ const Home = () => {
   const [bol, setbol] = useState(false);
 
   const Search = (val) => {
-    if (val !== "") {
+    if (val == "") {
+      setarray([]);
+    } else {
       setbol(true);
       axios
         .get(
