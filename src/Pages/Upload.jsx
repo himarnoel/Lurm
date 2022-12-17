@@ -44,7 +44,8 @@ const Upload = () => {
     let conver = fileUploaded.size / 1000000;
     console.log(conver);
     if (conver > 1.0) {
-      usedisp("Upload file less than 1mb");
+      settoast(true);
+      setmess("File size too large");
     } else {
       usedisp("ok");
       console.log("fileupload");
@@ -52,7 +53,7 @@ const Upload = () => {
   };
   const uploaded = () => {
     // console.log(formData);
-
+  
     if (courseCode == "") {
       setcourse(true);
     }
@@ -96,6 +97,7 @@ const Upload = () => {
           uselevel("");
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
+          usesession("");
           if (response.status == 201) {
             settoast(true);
             setmess("Upload Sucessful");
@@ -105,16 +107,13 @@ const Upload = () => {
           }
         })
         .catch((error) => {
-
           if (error.response.status == 400) {
             settoast(true);
             // setmess(error.response.statusText);
             setmess("Can't Upload");
-              setbol(false);
-          } 
+            setbol(false);
+          }
           console.log(error);
-        
-          
         });
     }
   };
@@ -126,7 +125,7 @@ const Upload = () => {
   return (
     <>
       {toast ? <Toaster mess={mess} close={() => settoast(false)} /> : ""}
-      
+
       <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
         {bol ? (
           <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-screen bg-white/75 left-0 right-0">
@@ -135,13 +134,7 @@ const Upload = () => {
         ) : (
           ""
         )}
-        {disp === "Upload file less than 1mb" ? (
-          <div className="lg:col-span-2 bg-black text-center text-white">
-            disp
-          </div>
-        ) : (
-          ""
-        )}
+
         <div className="lg:mx-0 mx-auto ">
           <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
             Upload the PDF file with the information needed
@@ -158,7 +151,7 @@ const Upload = () => {
             {disp == "ok" ? (
               <AiFillFile color="green" size={35} />
             ) : (
-              <GrDocumentUpload size={24} />
+              <GrDocumentUpload size={30} className="mb-3"/>
             )}
 
             <input
@@ -167,9 +160,10 @@ const Upload = () => {
               ref={hiddenFileInput}
               onChange={handleChange}
             />
-            {disp != "ok" ? <p>Drop files here to upload</p> : ""}
-            {disp != "ok" ? <p>or</p> : ""}
+           
             {disp != "ok" ? <p>Click to Browse</p> : ""}
+            {disp != "ok" ? <p>Files should be not</p> : ""}
+            {disp != "ok" ? <p> more than 1mb</p> : ""}
             {disp == "ok" ? <p>{filename}</p> : ""}
           </div>
           {ques ? <p className="text-red-500">Upload a file</p> : ""}
@@ -269,6 +263,7 @@ const Upload = () => {
             <label htmlFor="">Session</label>
             <div className="relative w-64">
               <select
+              value={session}
                 onClick={() => setses(false)}
                 onChange={(e) => {
                   usesession(e.target.value);

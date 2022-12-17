@@ -35,8 +35,8 @@ const Home = () => {
   };
   const Download = (file) => {
     console.log(file.questionFile);
-    saveAs(file.questionFile, `${file.courseCode}.pdf`);
-    // fileDownload(file.questionFile, `${file.courseCode}`);
+    saveAs(file.questionFile, file.courseCode);
+    // fileDownload(file.questionFile, `${file.courseCode}.pdf`);
     console.log(file.questionFile);
   };
 
@@ -94,7 +94,7 @@ const Home = () => {
                   <p>{arr.semester}</p>
                   <p>{arr.level}</p>
                   <p>{arr.session}</p>
-
+                  <a href={arr.questionFile}>Dowload</a>
                   <AiOutlineDownload
                     onClick={() => Download(arr)}
                     size="16"

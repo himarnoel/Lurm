@@ -4,7 +4,7 @@ function Toaster(props) {
   return (
     <>
       <div
-        className="relative top-64 right-[2rem] sm:top-0 sm:right-0"
+        className="relative ease-in duration-700 top-64 right-[2rem] sm:top-0 sm:right-0"
         onClick={props.close}
       >
         <IoIosClose
