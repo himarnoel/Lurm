@@ -12,25 +12,27 @@ const Home = () => {
   const [bol, setbol] = useState(false);
 
   const Search = (val) => {
-    setbol(true);
-    axios
-      .get(
-        `https://lurm-backend-production.up.railway.app/api/v1/pastquestion/?search=${val}`
-      )
-      .then((res) => {
-        console.log(res);
-        if (val != "") {
-          setarray(res.data);
+    if (val !== "") {
+      setbol(true);
+      axios
+        .get(
+          `https://lurm-backend-production.up.railway.app/api/v1/pastquestion/?search=${val}`
+        )
+        .then((res) => {
+          console.log(res);
+          if (val != "") {
+            setarray(res.data);
+            setbol(false);
+          } else {
+            setarray([]);
+            setbol(false);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           setbol(false);
-        } else {
-          setarray([]);
-          setbol(false);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setbol(false);
-      });
+        });
+    }
   };
   const Download = (file) => {
     console.log(file.questionFile);
