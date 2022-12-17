@@ -97,7 +97,7 @@ const Home = () => {
                 </thead>
                 <tbody className="   ">
                   {array.map((arr, i) => (
-                    <tr className="hover:bg-gray-50 dark:hover:bg-gray-600 text-xs md:text-base">
+                    <tr className="hover:bg-gray-50 text-xs md:text-base">
                       <td className="py-2 px-3 md:px-4 lg:px-6">
                         {arr.courseCode}
                       </td>
