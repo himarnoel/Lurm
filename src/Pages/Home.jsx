@@ -14,6 +14,7 @@ const Home = () => {
   const Search = (val) => {
     if (val == "") {
       setarray([]);
+      array.length = 0;
     } else {
       setbol(true);
       axios
