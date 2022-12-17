@@ -54,7 +54,7 @@ const Home = () => {
       </p>
       {/* Search  */}
 
-      <div className="relative w-[89%]  sm:w-[89%] lg:w-[82%] xl:w-[75%] mt-14">
+      <div className="relative w-[89%]  sm:w-[89%] lg:w-[846px] xl:w-[1020px] mt-14">
         <FiSearch
           size={22}
           color="green"
