@@ -5,7 +5,6 @@ import { FiSearch } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import fileDownload from "js-file-download";
 import { saveAs } from "file-saver";
 
 const Home = () => {
@@ -36,7 +35,6 @@ const Home = () => {
   const Download = (file) => {
     console.log(file.questionFile);
     saveAs(file.questionFile, file.courseCode);
-    // fileDownload(file.questionFile, `${file.courseCode}.pdf`);
     console.log(file.questionFile);
   };
 
@@ -94,7 +92,7 @@ const Home = () => {
                   <p>{arr.semester}</p>
                   <p>{arr.level}</p>
                   <p>{arr.session}</p>
-                
+
                   <AiOutlineDownload
                     onClick={() => Download(arr)}
                     size="16"
