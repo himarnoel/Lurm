@@ -16,8 +16,8 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="  sm:mt-10  md:mt-12  mt-14 w-[21rem] h-[20rem]  md:w-[23rem] md:h-[20rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
-       <div className="xl:w-[22rem]">
+      <div className="  sm:mt-10  md:mt-12  mt-14 w-[22rem] h-[20rem]  md:w-[23rem] md:h-[20rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
+       <div className="xl:w-[22rem] w-[18rem]">
        <div className="relative  w-full mt-10 xl:mt-10">
           <label htmlFor="">username</label>
           <AiOutlineUser
