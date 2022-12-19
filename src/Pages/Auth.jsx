@@ -5,7 +5,7 @@ import { HiOutlineKey } from "react-icons/hi";
 const Auth = () => {
   return (
     <div className="flex flex-col items-center  h-screen w-screen ">
-      <div className="flex mt-14 sm:mt-14 md:mt-24">
+      <div className="flex mt-14 sm:mt-14 md:mt-10">
         <img src={logo} alt="" className="object-contain w-14 mr-5" />
         <div>
           <p className="text-lg lg:text-xl font-bold text-black">
@@ -16,8 +16,8 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="  sm:mt-14  md:mt-16  mt-14 w-[20rem] h-[23rem] md:h-[24rem] lg:w-[30rem] lg:h-[24rem] sm:w-[30rem] xl:h-[26rem] xl:w-[30rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
-        <div className="relative w-72 sm:w-[25rem] mt-20 ">
+      <div className="  sm:mt-14  md:mt-10  mt-14 w-[21rem] h-[20rem] md:h-[24rem] lg:w-[30rem] lg:h-[24rem] sm:w-[30rem] xl:h-[26rem] xl:w-[30rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
+        <div className="relative w-72 sm:w-[25rem] mt-10 ">
           <label htmlFor="">username</label>
           <AiOutlineUser
             size={20}
