@@ -44,7 +44,7 @@ const Home = () => {
   };
 
   return (
-    <div className=" h-screen w-screen  lg:mx-auto  flex  items-center flex-col pt-16 lg:pt-10  md:pt-32 sm:pt-32">
+    <div className=" h-screen w-screen  lg:mx-auto  flex  items-center flex-col pt-16 lg:pt-10  md:pt-20 sm:pt-28">
       <img src={logo} alt="" className="object-contain w-20 lg:" />
       <p className="text-xl lg:text-2xl font-bold text-black">
         Landmark University
@@ -54,7 +54,7 @@ const Home = () => {
       </p>
       {/* Search  */}
 
-      <div className="relative w-[89%]  sm:w-[89%] lg:w-[846px] xl:w-[1020px] mt-14">
+      <div className="relative w-[89%]   lg:w-[846px] xl:w-[1020px] mt-14">
         <FiSearch
           size={22}
           color="green"
@@ -74,8 +74,8 @@ const Home = () => {
       ) : (
         <div className="md:mt-5 mt-3">
           {array.length !== 0 ? (
-            <div className="overflow-y-auto lg:w-fit xl:w-[1020px] max-h-[40vh] w-[90vw] rounded-md  bg-white">
-              <table className="table-auto lg:w-[840px]  xl:w-full w-[90vw]  bg-white text-center ">
+            <div className="overflow-y-auto lg:w-[846px]  xl:w-[1020px] max-h-[40vh] w-[90vw] rounded-md  bg-white">
+              <table className="table-auto  w-full bg-white text-center ">
                 <thead className="border-b sticky top-0  bg-white font-normal text-xs md:text-base">
                   <tr>
                     <th scope="col" className="sticky top-0  px-1">
