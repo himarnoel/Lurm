@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Upload from './Pages/Upload';
 import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
+import Auth from './Pages/Auth';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
    <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/upload" element={<Upload />} />
+        <Route path='/auth' element={<Auth/>}/>
       </Routes>
     </div>
   )
