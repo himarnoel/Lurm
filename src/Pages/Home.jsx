@@ -74,7 +74,7 @@ const Home = () => {
       ) : (
         <div className="md:mt-5 mt-3">
           {array.length !== 0 ? (
-            <div className="overflow-y-auto lg:w-[846px]  xl:w-[1020px] max-h-[40vh] w-[90vw] rounded-md  bg-white">
+            <div className="overflow-y lg:w-[846px]  xl:w-[1020px] max-h-[40vh] w-[90vw] rounded-md  bg-white">
               <table className="table-auto  w-full bg-white text-center ">
                 <thead className="border-b sticky top-0  bg-white font-normal text-xs md:text-base">
                   <tr>
