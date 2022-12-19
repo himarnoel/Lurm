@@ -16,7 +16,7 @@ const Auth = () => {
           </p>
         </div>
       </div>
-      <div className="  sm:mt-14  md:mt-20 mt-14 w-[20rem] h-[23rem] sm:w-[30rem] xl:h-[50%] xl:w-[24%] lg:h-[50%] lg:w-[30%] bg-white shadow-lg rounded-lg flex flex-col items-center ">
+      <div className="  sm:mt-14  md:mt-16  mt-14 w-[20rem] h-[23rem] md:h-[24rem] lg:w-[30rem] lg:h-[24rem] sm:w-[30rem] xl:h-[26rem] xl:w-[30rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
         <div className="relative w-72 sm:w-[25rem] mt-20 ">
           <label htmlFor="">username</label>
           <AiOutlineUser
@@ -30,7 +30,7 @@ const Auth = () => {
             type="text"
           />
         </div>
-        <div className="relative w-72 mt-5 sm:w-[25rem]">
+        <div className="relative w-72 mt-5 xl:mt-6 sm:w-[25rem]">
           <label htmlFor="">Password</label>
           <HiOutlineKey
             size={20}
@@ -43,7 +43,7 @@ const Auth = () => {
             type="text"
           />
         </div>
-        <button className="w-72 py-1 sm:w-[25rem] bg-[#2F8B33] rounded-lg mt-10 text-white text-sm">
+        <button className="w-72 py-1 xl:py-2 sm:w-[25rem] bg-[#2F8B33] rounded-lg mt-10 xl:mt-12 text-white text-sm">
           Log in
         </button>
       </div>
