@@ -16,7 +16,10 @@ const Auth = () => {
     validationSchema: basicSchema,
     onSubmit: (values) => {
       axios
-        .post("http://lurm.onrender.com/api/v1/login/", values)
+        .post(
+          "https://lurm-backend-production.up.railway.app/api/v1/login/",
+          values
+        )
         .then((res) => {
           console.log(res.status);
           console.log("loged in ");
