@@ -14,17 +14,19 @@ const Auth = () => {
       password: "",
     },
     validationSchema: basicSchema,
-    onSubmit: async (values) => {
-      let response = await axios.post(
-        "http:lurm-backend-production.up.railway.app/api/v1/login",
-        values
-      );
-      if (response.status==201) {
-        console.log("logged in");
-      }
+    onSubmit: (values) => {
+      axios
+        .post("http://lurm.onrender.com/api/v1/login/", values)
+        .then((res) => {
+          console.log(res.status);
+          console.log("loged in ");
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   });
-  console.log(formik.errors);
+  // console.log(formik.errors);
 
   return (
     <div className="flex flex-col items-center  h-screen w-screen ">
@@ -57,7 +59,7 @@ const Auth = () => {
                   ? `border-red-500 border p-2 rounded-md w-full focus:outline-red-500`
                   : `border p-2 rounded-md w-full focus:outline-[#D1D1D1] `
               }
-              type="email"
+              type="text"
               onChange={formik.handleChange}
               value={formik.values.username}
               onBlur={formik.handleBlur}
@@ -79,13 +81,13 @@ const Auth = () => {
             <input
               name="password"
               id="password"
-              placeholder="aremu.charity"
+              placeholder="......"
               className={
                 formik.errors.password && formik.touched.password
                   ? `border-red-500 border  p-2 rounded-md w-full focus:outline-red-500 `
                   : `border p-2 rounded-md w-full focus:outline-[#D1D1D1] `
               }
-              type="password"
+              type="text"
               onChange={formik.handleChange}
               value={formik.values.password}
               onBlur={formik.handleBlur}
