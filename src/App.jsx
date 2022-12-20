@@ -9,30 +9,18 @@ import Auth from "./Pages/Auth";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  const bol = localStorage.getItem("access");
   return (
     <div className=" ">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/login"
-          element={
-            localStorage.getItem("access") ? (
-              <Navigate to="/upload" />
-            ) : (
-              <Auth />
-            )
-          }
+          element={bol ? <Navigate to="/upload" /> : <Auth />}
         />
         <Route
           path="/upload"
-          element={
-            localStorage.getItem("access") ? (
-              <Upload />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
+          element={bol ? <Upload /> : <Navigate to="/login" />}
         />
       </Routes>
     </div>

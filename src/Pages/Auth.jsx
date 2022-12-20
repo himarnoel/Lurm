@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
@@ -9,6 +9,7 @@ import loade from "../assets/load.gif";
 import axios from "axios";
 const Auth = () => {
   const navigate = useNavigate();
+
   const [load, setload] = useState(false);
   const login = () => {};
   const formik = useFormik({
@@ -24,8 +25,9 @@ const Auth = () => {
         .then((res) => {
           localStorage.setItem("access", res.data.access);
           console.log("loged in ");
-          navigate("/upload");    
           setload(false);
+          navigate("/upload");
+          window.location.reload();
         })
         .catch((e) => {
           console.log(e);
