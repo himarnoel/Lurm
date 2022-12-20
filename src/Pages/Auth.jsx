@@ -4,6 +4,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
 import { basicSchema } from "../Schema";
+import axios from "axios";
 const Auth = () => {
   const [val, setval] = useState({});
   const login = () => {};
@@ -13,9 +14,14 @@ const Auth = () => {
       password: "",
     },
     validationSchema: basicSchema,
-    onSubmit: (values) => {
-      console.log(values);
-      setval(values);
+    onSubmit: async (values) => {
+      let response = await axios.post(
+        "http:lurm-backend-production.up.railway.app/api/v1/login",
+        values
+      );
+      if (response.status==201) {
+        console.log("logged in");
+      }
     },
   });
   console.log(formik.errors);
