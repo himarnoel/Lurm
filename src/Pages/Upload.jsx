@@ -8,6 +8,7 @@ import axios from "axios";
 
 import loade from "../assets/load.gif";
 import Toaster from "../components/Toast";
+import { endpoint } from "../Schema";
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -79,7 +80,7 @@ const Upload = () => {
       setbol(true);
       axios
         .post(
-          "  https://lurm-backend-production.up.railway.app/api/v1/pastquestion/upload/",
+          `${endpoint}pastquestion/upload/`,
           {
             courseCode,
             semester,

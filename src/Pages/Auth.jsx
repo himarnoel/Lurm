@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
-import { basicSchema } from "../Schema";
+import { basicSchema, endpoint } from "../Schema";
 import axios from "axios";
 const Auth = () => {
   const [val, setval] = useState({});
@@ -17,7 +17,7 @@ const Auth = () => {
     onSubmit: (values) => {
       axios
         .post(
-          "https://lurm-backend-production.up.railway.app/api/v1/login/",
+          `${endpoint}login/`,
           values
         )
         .then((res) => {

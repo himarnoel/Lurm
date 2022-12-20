@@ -6,6 +6,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
+import { endpoint } from "../Schema";
 
 const Home = () => {
   const [array, setarray] = useState([]);
@@ -18,9 +19,7 @@ const Home = () => {
     } else {
       setbol(true);
       axios
-        .get(
-          `https://lurm-backend-production.up.railway.app/api/v1/pastquestion/?search=${val}`
-        )
+        .get(`${endpoint}pastquestion/?search=${val}`)
         .then((res) => {
           console.log(res);
           if (val != "") {
