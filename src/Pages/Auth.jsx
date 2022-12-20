@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
 import { basicSchema, endpoint } from "../Schema";
+import loade from "../assets/load.gif";
 import axios from "axios";
 const Auth = () => {
-  const [val, setval] = useState({});
+  const navigate = useNavigate();
+  const [load, setload] = useState(false);
   const login = () => {};
   const formik = useFormik({
     initialValues: {
@@ -15,17 +18,18 @@ const Auth = () => {
     },
     validationSchema: basicSchema,
     onSubmit: (values) => {
+      setload(true);
       axios
-        .post(
-          `${endpoint}login/`,
-          values
-        )
+        .post(`${endpoint}login/`, values)
         .then((res) => {
-          console.log(res.status);
+          localStorage.setItem("access", res.data.access);
           console.log("loged in ");
+          navigate("/upload");    
+          setload(false);
         })
         .catch((e) => {
           console.log(e);
+          setload(false);
         });
     },
   });
@@ -106,7 +110,11 @@ const Auth = () => {
             type="submit"
             className=" py-1 xl:py-2 w-full bg-[#2F8B33] rounded-lg mt-10 xl:mt-12 text-white text-sm"
           >
-            Log in
+            {load ? (
+              <img src={loade} alt="" className="object-contain w-6 mx-auto" />
+            ) : (
+              "Log in"
+            )}
           </button>
         </form>
       </div>

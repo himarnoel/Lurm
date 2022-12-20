@@ -54,7 +54,8 @@ const Upload = () => {
   };
   const uploaded = () => {
     // console.log(formData);
-  
+    const access = localStorage.getItem("access");
+    console.log(access);
     if (courseCode == "") {
       setcourse(true);
     }
@@ -87,7 +88,8 @@ const Upload = () => {
             level,
             session,
             questionFile,
-          }
+          },
+          { headers: { Authorization: `Bearer ${access}` } }
         )
         .then((response) => {
           // console.log(response);
@@ -102,18 +104,24 @@ const Upload = () => {
           if (response.status == 201) {
             settoast(true);
             setmess("Upload Sucessful");
+            console.log(response.data);
           } else {
             settoast(true);
             setmess("Upload Error");
           }
         })
         .catch((error) => {
-          if (error.response.status == 400) {
-            settoast(true);
-            // setmess(error.response.statusText);
-            setmess("Can't Upload");
-            setbol(false);
-          }
+          setbol(false);
+          usecourseCode(""); //to clear input
+          usesemester("");
+          uselevel("");
+          usequestionFile(""); // to remove file
+          usedisp(""); // to remove
+          usesession("");
+
+          settoast(true);
+          // setmess(error.response.statusText);
+          setmess("Can't Upload");
           console.log(error);
         });
     }
@@ -152,7 +160,7 @@ const Upload = () => {
             {disp == "ok" ? (
               <AiFillFile color="green" size={35} />
             ) : (
-              <GrDocumentUpload size={30} className="mb-3"/>
+              <GrDocumentUpload size={30} className="mb-3" />
             )}
 
             <input
@@ -161,7 +169,7 @@ const Upload = () => {
               ref={hiddenFileInput}
               onChange={handleChange}
             />
-           
+
             {disp != "ok" ? <p>Click to Browse</p> : ""}
             {disp != "ok" ? <p>Files should be not</p> : ""}
             {disp != "ok" ? <p> more than 1mb</p> : ""}
@@ -264,7 +272,7 @@ const Upload = () => {
             <label htmlFor="">Session</label>
             <div className="relative w-64">
               <select
-              value={session}
+                value={session}
                 onClick={() => setses(false)}
                 onChange={(e) => {
                   usesession(e.target.value);
