@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
 import { basicSchema } from "../Schema";
 const Auth = () => {
-  const [data, setdata] = useState(second);
+  const [val, setval] = useState({});
+  const login = () => {};
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -14,10 +15,10 @@ const Auth = () => {
     validationSchema: basicSchema,
     onSubmit: (values) => {
       console.log(values);
-      setdata(values);
+      setval(values);
     },
   });
-
+  console.log(formik.errors);
 
   return (
     <div className="flex flex-col items-center  h-screen w-screen ">
