@@ -2,7 +2,23 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
+import { useFormik } from "formik";
+import { basicSchema } from "../Schema";
 const Auth = () => {
+  const [data, setdata] = useState(second);
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    validationSchema: basicSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      setdata(values);
+    },
+  });
+
+
   return (
     <div className="flex flex-col items-center  h-screen w-screen ">
       <div className="flex mt-14 sm:mt-10 md:mt-12">
@@ -17,7 +33,7 @@ const Auth = () => {
         </div>
       </div>
       <div className="  sm:mt-10   md:mt-12  mt-14 w-[20rem] h-[20rem]  md:w-[23rem] md:h-[20rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
-        <div className="xl:w-[22rem] w-[17rem]">
+        <form className="xl:w-[22rem] w-[17rem]" onSubmit={formik.handleSubmit}>
           <div className="relative  w-full mt-10 xl:mt-10">
             <label htmlFor="">username</label>
             <AiOutlineUser
@@ -26,10 +42,25 @@ const Auth = () => {
               className="absolute top-8 right-2 "
             />
             <input
+              id="username"
+              name="username"
               placeholder="aremu.charity"
-              className="border p-2 rounded-md w-full  focus:outline-[#D1D1D1]"
-              type="text"
+              className={
+                formik.errors.username && formik.touched.username
+                  ? `border-red-500 border p-2 rounded-md w-full focus:outline-red-500`
+                  : `border p-2 rounded-md w-full focus:outline-[#D1D1D1] `
+              }
+              type="email"
+              onChange={formik.handleChange}
+              value={formik.values.username}
+              onBlur={formik.handleBlur}
+              required
             />
+            {formik.errors.username && formik.touched.username ? (
+              <p className="text-red-500 text-sm ">{formik.errors.username}</p>
+            ) : (
+              ""
+            )}
           </div>
           <div className="relative w-full mt-5">
             <label htmlFor="">Password</label>
@@ -39,15 +70,33 @@ const Auth = () => {
               className="absolute top-8 right-2"
             />
             <input
+              name="password"
+              id="password"
               placeholder="aremu.charity"
-              className="border p-2 rounded-md w-full focus:outline-[#D1D1D1] "
-              type="text"
+              className={
+                formik.errors.password && formik.touched.password
+                  ? `border-red-500 border  p-2 rounded-md w-full focus:outline-red-500 `
+                  : `border p-2 rounded-md w-full focus:outline-[#D1D1D1] `
+              }
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              onBlur={formik.handleBlur}
+              required
             />
+            {formik.errors.password && formik.touched.password ? (
+              <p className="text-red-500 text-sm ">{formik.errors.password}</p>
+            ) : (
+              ""
+            )}
           </div>
-          <button className=" py-1 xl:py-2 w-full bg-[#2F8B33] rounded-lg mt-10 xl:mt-12 text-white text-sm">
+          <button
+            type="submit"
+            className=" py-1 xl:py-2 w-full bg-[#2F8B33] rounded-lg mt-10 xl:mt-12 text-white text-sm"
+          >
             Log in
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
