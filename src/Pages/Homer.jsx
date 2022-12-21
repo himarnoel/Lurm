@@ -46,7 +46,7 @@ const Homer = () => {
     <div className=" h-screen bg-[url('/src/assets/bg.png')] bg-no-repeat bg-center bg-cover">
       <div className="h-screen w-screen">
         {/*NAVIGATION BAR */}
-        <div className="lg:w-screen py-2 px-10 bg-white shadow-lg ">
+        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-lg ">
           <div className="flex font-bold  items-center">
             <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
             <span className="flex flex-col leading-[1.2rem] pl-2">
@@ -57,25 +57,25 @@ const Homer = () => {
         </div>
 
         {/* Search bar*/}
-        <div className="relative w-[89%]  mx-auto mt-32 lg:w-[846px] xl:w-[1020px] rounded-lg">
+        <div className="relative w-[89%]  mx-auto md:mt-64 mt-32 lg:w-[846px] xl:w-[1020px] rounded-lg">
           <FiSearch
             size={22}
             color="green"
-            className="absolute top-0 bottom-0 w-4 h-4 md:w-6 md:h-6 my-auto text-gray-400 left-3 "
+            className="absolute top-0 bottom-0 w-6 h-6  my-auto text-gray-400 left-3 "
           />
           <input
             placeholder="search past questions by course code"
             onChange={(e) => Search(e.target.value)}
             type="text"
-            className="w-full md:py-2 py-[0.2rem] pl-12 pr-4 text-black border rounded-lg shadow outline-none bg-gray-50 focus:bg-white focus:border-transparent"
+            className="w-full  py-2 pl-12 pr-4 text-black border rounded-lg shadow outline-none bg-gray-50 focus:bg-white focus:border-transparent"
           />
         </div>
         {bol ? (
-          <div className="mx-auto flex justify-center mt-10">
-            <BeatLoader color="#16A34A" />
+          <div className="mx-auto flex justify-center mt-10 md:mt-28">
+            <BeatLoader color="#16A34A" size={20} />
           </div>
         ) : (
-          <div className="md:mt-5 mt-3 mx-auto">
+          <div className="md:mt-10 mt-3 mx-auto">
             {array.length !== 0 ? (
               <div className=" mx-auto overflow-y-auto lg:w-[846px] max-h-[40vh] xl:w-[1020px] w-[90vw] rounded-md  bg-white">
                 <table className="table-auto   w-full  bg-white text-center ">
@@ -135,9 +135,9 @@ const Homer = () => {
           </div>
         )}
 
-        <div className="absolute bottom-0 py-5 px-10 text-sm w-screen bg-white flex justify-between items-center">
-          <div>©Copyright Holders </div>
-          <div className=" w-[27rem] flex justify-evenly">
+        <div className="absolute bottom-0 py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
+          <div className="w-36">©Copyright Holders </div>
+          <div className=" md:w-[27rem]  w-64 flex justify-evenly ">
             <Link to="">Upload Documents</Link>
             <Link to="">CMS</Link>
             <Link to="">School Website</Link>
