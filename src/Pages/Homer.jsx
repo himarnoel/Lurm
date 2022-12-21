@@ -7,6 +7,8 @@ import { AiOutlineDownload } from "react-icons/ai";
 import { saveAs } from "file-saver";
 import axios from "axios";
 import { endpoint } from "../Schema";
+import BeatLoader from "react-spinners/BeatLoader ";
+
 const Homer = () => {
   const [array, setarray] = useState([]);
   const [bol, setbol] = useState(false);
@@ -55,7 +57,7 @@ const Homer = () => {
         </div>
 
         {/* Search bar*/}
-        <div className="relative w-[89%]  mx-auto mt-32 lg:w-[846px] xl:w-[1020px]">
+        <div className="relative w-[89%]  mx-auto mt-32 lg:w-[846px] xl:w-[1020px] rounded-lg">
           <FiSearch
             size={22}
             color="green"
@@ -65,15 +67,13 @@ const Homer = () => {
             placeholder="search past questions by course code"
             onChange={(e) => Search(e.target.value)}
             type="text"
-            className="w-full md:py-2 py-[0.2rem] pl-12 pr-4 text-black border rounded-lg shadow-md outline-none bg-gray-50 focus:bg-white focus:border-green-600"
+            className="w-full md:py-2 py-[0.2rem] pl-12 pr-4 text-black border rounded-lg shadow outline-none bg-gray-50 focus:bg-white focus:border-green-600"
           />
         </div>
         {bol ? (
-          <img
-            src={loade}
-            alt=""
-            className="w-10 object-contain mt-5 mx-auto"
-          />
+          <div className="mx-auto flex justify-center mt-10">
+            <BeatLoader color="#008000" />
+          </div>
         ) : (
           <div className="md:mt-5 mt-3 mx-auto">
             {array.length !== 0 ? (
