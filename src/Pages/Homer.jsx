@@ -44,10 +44,10 @@ const Homer = () => {
   };
   return (
     <div className=" h-screen bg-[url('/src/assets/bg.png')] bg-no-repeat bg-center bg-cover">
-      <div className="h-screen w-screen">
+      <div className="h-screen w-screen flex pt-48 items-center flex-col">
         {/*NAVIGATION BAR */}
-        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-lg ">
-          <div className="flex font-bold  items-center">
+        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-lg  fixed top-0 w-screen">
+          <div className="flex font-bold  items-center ">
             <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
             <span className="flex flex-col leading-[1.2rem] pl-2">
               <span>Landmark University</span>
@@ -57,7 +57,7 @@ const Homer = () => {
         </div>
 
         {/* Search bar*/}
-        <div className="relative w-[89%]  mx-auto md:mt-64 mt-32 lg:w-[846px] xl:w-[1020px] rounded-lg">
+        <div className="relative w-[89%]  mx-auto md:mt-64  lg:w-[846px] xl:w-[1020px] rounded-lg">
           <FiSearch
             size={22}
             color="green"
