@@ -135,7 +135,7 @@ const Homer = () => {
           </div>
         )}
 
-        <div className="absolute bottom-0 py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
+        <div className="fixed bottom-0 py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
           <div className="w-36">©Copyright Holders </div>
           <div className=" md:w-[27rem]  w-64 flex justify-evenly ">
             <Link to="">Upload Documents</Link>
