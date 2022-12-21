@@ -9,6 +9,7 @@ import axios from "axios";
 import loade from "../assets/load.gif";
 import Toaster from "../components/Toast";
 import { endpoint } from "../Schema";
+import { ToastContainer, toast } from "react-toastify";
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -45,8 +46,7 @@ const Upload = () => {
     let conver = fileUploaded.size / 1000000;
     console.log(conver);
     if (conver > 1.0) {
-      settoast(true);
-      setmess("File size too large");
+      toast.error("File size too large");
     } else {
       usedisp("ok");
       console.log("fileupload");
@@ -102,12 +102,10 @@ const Upload = () => {
           usedisp(""); // to remove
           usesession("");
           if (response.status == 201) {
-            settoast(true);
-            setmess("Upload Sucessful");
+            toast.success("Upload Sucessful");
             console.log(response.data);
           } else {
-            settoast(true);
-            setmess("Upload Error");
+            toast.error("Upload Sucessful");
           }
         })
         .catch((error) => {
@@ -118,23 +116,16 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           usesession("");
+          toast.error("Upload Unsucessful");
 
-          settoast(true);
-          // setmess(error.response.statusText);
-          setmess("Can't Upload");
           console.log(error);
         });
     }
   };
-  const [toast, settoast] = useState(false);
-  setTimeout(() => {
-    settoast(false);
-  }, 7000);
 
   return (
     <>
-      {toast ? <Toaster mess={mess} close={() => settoast(false)} /> : ""}
-
+      <ToastContainer />
       <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
         {bol ? (
           <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-screen bg-white/75 left-0 right-0">

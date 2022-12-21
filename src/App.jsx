@@ -6,6 +6,8 @@ import Upload from "./Pages/Upload";
 import { Route } from "react-router-dom";
 import { Routes, Navigate } from "react-router-dom";
 import Auth from "./Pages/Auth";
+  
+import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
   const [count, setCount] = useState(0);

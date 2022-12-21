@@ -26,7 +26,6 @@ const Auth = () => {
           localStorage.setItem("access", res.data.access);
           console.log("loged in ");
           setload(false);
-          navigate("/upload");
           window.location.reload();
         })
         .catch((e) => {
