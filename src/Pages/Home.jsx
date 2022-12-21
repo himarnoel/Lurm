@@ -45,7 +45,7 @@ const Home = () => {
     <div className=" h-screen bg-[url('/src/assets/bg.png')] bg-no-repeat bg-center bg-cover">
       <div className="h-screen w-screen flex  items-center flex-col sm:pt-0 justify-between">
         {/*NAVIGATION BAR */}
-        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-lg   w-screen">
+        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-sm  w-screen">
           <div className="flex font-bold  items-center ">
             <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
             <span className="flex flex-col leading-[1.2rem] pl-2">
