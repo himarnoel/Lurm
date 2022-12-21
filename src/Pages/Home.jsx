@@ -7,7 +7,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import { endpoint } from "../Schema";
-import bg from "../assets/bg.png";
+
 import "./home.css";
 const Home = () => {
   const [array, setarray] = useState([]);
