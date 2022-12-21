@@ -7,6 +7,8 @@ import { saveAs } from "file-saver";
 import axios from "axios";
 import { endpoint } from "../Schema";
 import BeatLoader from "react-spinners/BeatLoader ";
+import Nav from "./../components/Nav";
+import Footer from "./../components/Footer";
 
 const Home = () => {
   const [array, setarray] = useState([]);
@@ -45,15 +47,7 @@ const Home = () => {
     <div className=" h-screen bg-[url('/src/assets/bg.png')] bg-no-repeat bg-center bg-cover">
       <div className="h-screen w-screen flex  items-center flex-col sm:pt-0 justify-between">
         {/*NAVIGATION BAR */}
-        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-sm md:shadow-md lg:shadow-lg   w-screen">
-          <div className="flex font-bold  items-center ">
-            <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
-            <span className="flex flex-col leading-[1.2rem] pl-2">
-              <span>Landmark University</span>
-              <span>Resources Manager</span>
-            </span>
-          </div>
-        </div>
+        <Nav />
         <div className="absolute lg:top-[12rem] top-[13rem] sm:top-[20rem] md:top-[8rem]  w-[100vw]">
           {/* Search bar*/}
           <div className="relative w-[89%]  mx-auto md:mt-64  lg:mt-[0rem] lg:w-[846px] xl:w-[1020px] rounded-lg">
@@ -135,18 +129,7 @@ const Home = () => {
           )}
         </div>
 
-        <div className=" py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
-          <div className="w-36">©Copyright Holders </div>
-          <div className=" md:w-[27rem]  w-64 flex justify-evenly ">
-            <Link to="/login">Upload Documents</Link>
-            <a href="https://cms.lmu.edu.ng" target="_blank">
-              CMS
-            </a>
-            <a href="https://lmu.edu.ng" target="_blank">
-              School Website
-            </a>
-          </div>{" "}
-        </div>
+        <Footer />
       </div>
     </div>
   );
