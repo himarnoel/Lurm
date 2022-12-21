@@ -44,7 +44,7 @@ const Homer = () => {
   };
   return (
     <div className=" h-screen bg-[url('/src/assets/bg.png')] bg-no-repeat bg-center bg-cover">
-      <div className="h-screen w-screen flex pt-48 items-center flex-col">
+      <div className="h-screen w-screen flex pt-48 items-center flex-col lg:pt-2">
         {/*NAVIGATION BAR */}
         <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-lg  fixed top-0 w-screen">
           <div className="flex font-bold  items-center ">
@@ -57,7 +57,7 @@ const Homer = () => {
         </div>
 
         {/* Search bar*/}
-        <div className="relative w-[89%]  mx-auto md:mt-64  lg:w-[846px] xl:w-[1020px] rounded-lg">
+        <div className="relative w-[89%]  mx-auto md:mt-64  lg:mt-[12rem] lg:w-[846px] xl:w-[1020px] rounded-lg">
           <FiSearch
             size={22}
             color="green"
@@ -71,11 +71,11 @@ const Homer = () => {
           />
         </div>
         {bol ? (
-          <div className="mx-auto flex justify-center mt-10 md:mt-28">
+          <div className="mx-auto flex justify-center mt-10 md:mt-28 ">
             <BeatLoader color="#16A34A" size={20} />
           </div>
         ) : (
-          <div className="md:mt-10 mt-3 mx-auto">
+          <div className="md:mt-10 mt-3 mx-auto ">
             {array.length !== 0 ? (
               <div className=" mx-auto overflow-y-auto lg:w-[846px] max-h-[40vh] xl:w-[1020px] w-[90vw] rounded-md  bg-white">
                 <table className="table-auto   w-full  bg-white text-center ">
