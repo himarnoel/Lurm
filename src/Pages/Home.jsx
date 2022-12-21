@@ -70,7 +70,7 @@ const Home = () => {
             />
           </div>
           {bol ? (
-            <div className="mx-auto flex justify-center mt-5 md:mt-20 ">
+            <div className="mx-auto flex justify-center mt-10 md:mt-20 ">
               <BeatLoader color="#16A34A" size={17} />
             </div>
           ) : (
