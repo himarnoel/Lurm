@@ -9,7 +9,7 @@ import Auth from "./Pages/Auth";
 
 import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer } from "react-toastify";
-import Homer from "./Pages/Homer";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,7 +18,7 @@ function App() {
     <div className=" ">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Homer />}></Route>
+      
         <Route
           path="/login"
           element={bol ? <Navigate to="/upload" /> : <Auth />}
