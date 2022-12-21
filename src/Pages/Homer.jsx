@@ -67,12 +67,12 @@ const Homer = () => {
             placeholder="search past questions by course code"
             onChange={(e) => Search(e.target.value)}
             type="text"
-            className="w-full md:py-2 py-[0.2rem] pl-12 pr-4 text-black border rounded-lg shadow outline-none bg-gray-50 focus:bg-white focus:border-green-600"
+            className="w-full md:py-2 py-[0.2rem] pl-12 pr-4 text-black border rounded-lg shadow outline-none bg-gray-50 focus:bg-white focus:border-transparent"
           />
         </div>
         {bol ? (
           <div className="mx-auto flex justify-center mt-10">
-            <BeatLoader color="#008000" />
+            <BeatLoader color="#16A34A" />
           </div>
         ) : (
           <div className="md:mt-5 mt-3 mx-auto">
