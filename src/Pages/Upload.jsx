@@ -7,7 +7,6 @@ import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
 
 import loade from "../assets/load.gif";
-import Toaster from "../components/Toast";
 import { endpoint } from "../Schema";
 import { ToastContainer, toast } from "react-toastify";
 const Upload = () => {
@@ -21,7 +20,7 @@ const Upload = () => {
 
   const [filename, setfilename] = useState("");
   const [bol, setbol] = useState(false);
-  const [mess, setmess] = useState("");
+
   /// For error
   const [course, setcourse] = useState(false);
   const [semes, setsemes] = useState(false);
@@ -35,7 +34,8 @@ const Upload = () => {
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
+    let fileUploaded = event.target.files[0];
+    console.log("sdfaadfsdf");
     const reader = new FileReader();
     reader.readAsDataURL(fileUploaded);
     reader.onload = () => {
@@ -46,6 +46,7 @@ const Upload = () => {
     let conver = fileUploaded.size / 1000000;
     console.log(conver);
     if (conver > 1.0) {
+      usedisp(" ");
       toast.error("File size too large");
     } else {
       usedisp("ok");
@@ -93,7 +94,6 @@ const Upload = () => {
         )
         .then((response) => {
           // console.log(response);
-          settoast(true); //show toast
           setbol(false); //stop loading
           usecourseCode(""); //to clear input
           usesemester("");
@@ -103,7 +103,6 @@ const Upload = () => {
           usesession("");
           if (response.status == 201) {
             toast.success("Upload Sucessful");
-            console.log(response.data);
           } else {
             toast.error("Upload Sucessful");
           }
@@ -125,10 +124,10 @@ const Upload = () => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="top-center" autoClose={3000} />
       <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
         {bol ? (
-          <div className="absolute flex justify-center items-center z-10 top-0 lg:h-[100%] h-screen bg-white/75 left-0 right-0">
+          <div className="absolute flex justify-center items-center z-10 top-0  lg:h-[100%] md:h-screen h-[130vh] bg-white/75 left-0 right-0">
             <img src={loade} alt="" srcset="" className="object-contain " />
           </div>
         ) : (

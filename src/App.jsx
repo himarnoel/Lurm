@@ -6,14 +6,16 @@ import Upload from "./Pages/Upload";
 import { Route } from "react-router-dom";
 import { Routes, Navigate } from "react-router-dom";
 import Auth from "./Pages/Auth";
-  
+
 import "react-toastify/dist/ReactToastify.min.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [count, setCount] = useState(0);
   const bol = localStorage.getItem("access");
   return (
     <div className=" ">
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
