@@ -70,8 +70,8 @@ const Home = () => {
             />
           </div>
           {bol ? (
-            <div className="mx-auto flex justify-center mt-10 md:mt-28 ">
-              <BeatLoader color="#16A34A" size={20} />
+            <div className="mx-auto flex justify-center mt-5 md:mt-20 ">
+              <BeatLoader color="#16A34A" size={17} />
             </div>
           ) : (
             <div className="md:mt-8 mt-3 mx-auto ">
