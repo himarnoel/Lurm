@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import { endpoint } from "../Schema";
 
-import "./home.css";
 const Home = () => {
   const [array, setarray] = useState([]);
   const [bol, setbol] = useState(false);
