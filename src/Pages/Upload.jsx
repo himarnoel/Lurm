@@ -9,6 +9,7 @@ import axios from "axios";
 import loade from "../assets/load.gif";
 import { endpoint } from "../Schema";
 import { ToastContainer, toast } from "react-toastify";
+import  BeatLoader  from 'react-spinners/BeatLoader ';
 const Upload = () => {
   const hiddenFileInput = useRef(null);
   const [disp, usedisp] = useState("");
@@ -126,9 +127,9 @@ const Upload = () => {
     <>
       <ToastContainer position="top-center" autoClose={3000} />
       <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
-        {bol ? (
+        {!bol ? (
           <div className="absolute flex justify-center items-center z-10 top-0  lg:h-[100%] md:h-screen h-[130vh] bg-white/75 left-0 right-0">
-            <img src={loade} alt="" srcset="" className="object-contain " />
+               <BeatLoader color="#16A34A" size={30} />
           </div>
         ) : (
           ""
