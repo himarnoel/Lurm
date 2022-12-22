@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
@@ -9,7 +9,7 @@ import loade from "../assets/load.gif";
 import axios from "axios";
 import Nav from "./../components/Nav";
 import BeatLoader from "react-spinners/BeatLoader ";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 const Login = () => {
   const navigate = useNavigate();
 
@@ -29,23 +29,20 @@ const Login = () => {
           localStorage.setItem("access", res.data.access);
           console.log("loged in ");
           setload(false);
-          toast.success("Login successful")
+          toast.success("Login successful");
           window.location.reload();
         })
         .catch((e) => {
-         
-          if(e.code.toString()=="ERR_NETWORK")
-          {
-              toast.error(e.message.toString(),{position: "bottom-center"})
-              setload(false);
+          if (e.code.toString() == "ERR_NETWORK") {
+            toast.error(e.message.toString(), { position: "bottom-center" });
+            setload(false);
           }
-             
-    if(e.response.status>=400){
-          toast.error("Invalid username or pasword")
-          setload(false);
-    } 
 
-    
+          if (e.response.status >= 400) {
+            toast.error("Invalid username or pasword");
+            setload(false);
+          }
+
           setload(false);
         });
     },
@@ -132,18 +129,19 @@ const Login = () => {
               </form>
             </div>
           </div>
+
           <div className=" py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
-        <div className="w-36">©Copyright Holders </div>
-        <div className=" md:w-[27rem]  w-64 flex justify-evenly ">
-          <Link to="/login">Upload Documents</Link>
-          <a href="https://cms.lmu.edu.ng" target="_blank">
-            CMS
-          </a>
-          <a href="https://lmu.edu.ng" target="_blank">
-            School Website
-          </a>
-        </div>{" "}
-      </div>
+            <div className="w-36">©Copyright Holders </div>
+            <div className=" md:w-[27rem]  w-64 flex justify-evenly ">
+              <Link to="/login">Upload Documents</Link>
+              <a href="https://cms.lmu.edu.ng" target="_blank">
+                CMS
+              </a>
+              <a href="https://lmu.edu.ng" target="_blank">
+                School Website
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
