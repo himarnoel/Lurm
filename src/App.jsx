@@ -1,14 +1,14 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Home from "./Pages/Home";
 import Upload from "./Pages/Upload";
 import { Route } from "react-router-dom";
 import { Routes, Navigate } from "react-router-dom";
-import Auth from "./Pages/Auth";
+
 
 import "react-toastify/dist/ReactToastify.min.css";
-import { ToastContainer } from "react-toastify";
+
+import Login from "./Pages/Auth";
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       
         <Route
           path="/login"
-          element={bol ? <Navigate to="/upload" /> : <Auth />}
+          element={bol ? <Navigate to="/upload" /> : <Login />}
         />
         <Route
           path="/upload"
