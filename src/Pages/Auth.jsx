@@ -8,7 +8,6 @@ import { basicSchema, endpoint } from "../Schema";
 import loade from "../assets/load.gif";
 import axios from "axios";
 import Nav from "./../components/Nav";
-import Footer from "./../components/Footen";
 import BeatLoader from "react-spinners/BeatLoader ";
 import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
