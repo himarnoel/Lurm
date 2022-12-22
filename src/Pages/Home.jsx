@@ -8,7 +8,7 @@ import axios from "axios";
 import { endpoint } from "../Schema";
 import BeatLoader from "react-spinners/BeatLoader ";
 import Nav from "./../components/Nav";
-import Footer from "./../components/Footer";
+import Footen from "./../components/Footen";
 
 const Home = () => {
   const [array, setarray] = useState([]);
@@ -129,7 +129,7 @@ const Home = () => {
           )}
         </div>
 
-        <Footer />
+        <Footen />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-const Footer = () => {
+const Footen = () => {
   return (
     <div>
       <div className=" py-5 pl-5 lg:px-10 md:text-sm w-screen text-[0.6rem]  bg-white flex justify-between items-center">
@@ -19,4 +19,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footen;
