@@ -70,7 +70,7 @@ const Login = () => {
                   <input
                     id="username"
                     name="username"
-                    placeholder="aremu.charity"
+                    placeholder="e.g CSC_100"
                     className={
                       formik.errors.username && formik.touched.username
                         ? `border-red-500 border p-2 lg:p-[0.4rem] rounded-md w-full focus:outline-red-500`
@@ -103,8 +103,8 @@ const Login = () => {
                     placeholder="......"
                     className={
                       formik.errors.password && formik.touched.password
-                        ? `border-red-500 border  p-2 rounded-md w-full focus:outline-red-500 `
-                        : `border p-2 rounded-md w-full focus:outline-[#D1D1D1] `
+                        ? `border-red-500 border   p-2 rounded-md w-full focus:outline-red-500 `
+                        : `border p-2 rounded-md w-full  focus:outline-[#D1D1D1] `
                     }
                     type="text"
                     onChange={formik.handleChange}
