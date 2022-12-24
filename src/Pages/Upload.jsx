@@ -6,6 +6,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import { AiFillFile } from "react-icons/ai";
 import axios from "axios";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 import { endpoint } from "../Schema";
 import { ToastContainer, toast } from "react-toastify";
@@ -130,9 +131,9 @@ const Upload = () => {
     <>
       <ToastContainer position="top-center" autoClose={3000} />
       <div>
-        <div className="lg:w-screen py-2 px-5 md:px-10 bg-white shadow-sm md:shadow-md lg:shadow-lg   w-screen">
-          <div className="flex font-bold  items-center justify-between  lg:px-24">
-            <div className="flex">
+        <div className="fixed py-2 px-5 lg:py-1 md:px-2 bg-white shadow-sm md:shadow-md lg:shadow-lg   w-full">
+          <div className="flex font-bold  items-center justify-between  lg:px-[9.5rem]">
+            <div className="flex items-center">
               <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
               <span className="flex flex-col leading-[1.2rem] pl-2">
                 <span>Landmark University</span>
@@ -148,7 +149,7 @@ const Upload = () => {
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2  lg:max-w-[1020px] lg:pl-5 lg:pr-8 xl:pl-0 xl:pr-0 lg:mx-auto  pt-5   md:pt-10">
+      <div className="grid lg:grid-cols-2 lg:pt-20 lg:max-w-[1020px]   xl:pl-0 xl:pr-0 lg:mx-auto  pt-8   md:pt-10">
         {bol ? (
           <div className="absolute flex justify-center items-center z-10 top-0  lg:h-[100%] md:h-screen h-[130vh] bg-white/75 left-0 right-0">
             <BeatLoader color="#16A34A" size={30} />
@@ -158,7 +159,7 @@ const Upload = () => {
         )}
 
         <div className="lg:mx-0 mx-auto">
-          <h1 className="lg:mb-14 text-center mb-5 lg:text-start">
+          <h1 className="lg:mb-9 lg:mt-2 text-center mb-5 lg:text-start">
             Upload the PDF file with the information needed
           </h1>
 

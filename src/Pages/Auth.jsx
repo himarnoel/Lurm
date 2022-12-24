@@ -55,12 +55,12 @@ const Login = () => {
           {/*NAVIGATION BAR */}
           <Nav />
           <div className="">
-            <div className="  sm:mt-0 mx-auto   md:mt-0  mt-0 w-[20rem] h-[20rem]  md:w-[23rem] md:h-[20rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg flex flex-col items-center ">
+            <div className="flex flex-col items-center justify-evenly  mx-auto  w-[20rem] h-[20rem]  md:w-[26rem] md:h-[22rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg ">
               <form
-                className="xl:w-[22rem] w-[17rem]"
+                className="xl:w-[22rem] w-[17rem] flex flex-col items-center justify-evenly h-full md:w-[20rem]"
                 onSubmit={formik.handleSubmit}
               >
-                <div className="relative  w-full mt-10 xl:mt-10">
+                <div className="relative  w-full mt-4 xl:mt-5">
                   <label htmlFor="">username</label>
                   <AiOutlineUser
                     size={20}
@@ -90,7 +90,7 @@ const Login = () => {
                     ""
                   )}
                 </div>
-                <div className="relative w-full mt-5">
+                <div className="relative w-full ">
                   <label htmlFor="">Password</label>
                   <HiOutlineKey
                     size={20}
@@ -104,7 +104,7 @@ const Login = () => {
                     className={
                       formik.errors.password && formik.touched.password
                         ? `border-red-500 border   p-2 rounded-md w-full focus:outline-red-500 `
-                        : `border p-2 rounded-md w-full  focus:outline-[#D1D1D1] `
+                        : `border p-2 rounded-md w-full  focus:outline-[#D1D1D1] placeholder:text-3xl  `
                     }
                     type="password"
                     onChange={formik.handleChange}
@@ -120,9 +120,10 @@ const Login = () => {
                     ""
                   )}
                 </div>
+              
                 <button
                   type="submit"
-                  className=" py-1 lg:py-3 w-full bg-[#2F8B33] rounded-lg mt-10 xl:mt-12 text-white text-sm"
+                  className=" py-1 lg:py-3 w-full bg-[#2F8B33] rounded-lg  text-white text-sm"
                 >
                   {load ? <BeatLoader color="#ffffff" size={10} /> : "Log in"}
                 </button>
