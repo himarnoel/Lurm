@@ -106,7 +106,7 @@ const Login = () => {
                         ? `border-red-500 border   p-2 rounded-md w-full focus:outline-red-500 `
                         : `border p-2 rounded-md w-full  focus:outline-[#D1D1D1] `
                     }
-                    type="text"
+                    type="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
                     onBlur={formik.handleBlur}
