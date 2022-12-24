@@ -26,7 +26,7 @@ const Login = () => {
       axios
         .post(`${endpoint}login/`, values)
         .then((res) => {
-          localStorage.setItem("access", res.data.access);
+          localStorage.setItem("token", res.data.tokens);
           console.log("loged in ");
           setload(false);
           toast.success("Login successful");

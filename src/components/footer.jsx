@@ -13,7 +13,7 @@ const Footen = () => {
           <a href="https://lmu.edu.ng" target="_blank">
             School Website
           </a>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

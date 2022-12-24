@@ -13,7 +13,7 @@ import Login from "./Pages/Auth";
 
 function App() {
   const [count, setCount] = useState(0);
-  const bol = localStorage.getItem("access");
+  const token = localStorage.getItem("token");
   return (
     <div className=" ">
       <Routes>
@@ -21,11 +21,11 @@ function App() {
       
         <Route
           path="/login"
-          element={bol ? <Navigate to="/upload" /> : <Login />}
+          element={token ? <Navigate to="/upload" /> : <Login />}
         />
         <Route
           path="/upload"
-          element={bol ? <Upload /> : <Navigate to="/login" />}
+          element={token ? <Upload /> : <Navigate to="/login" />}
         />
       </Routes>
     </div>
