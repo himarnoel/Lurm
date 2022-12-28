@@ -56,7 +56,7 @@ const Upload = () => {
     }
   };
   const uploaded = () => {
-    // console.log(formData);
+  
     const token = localStorage.getItem("token");
     console.log(token);
     if (courseCode == "") {
@@ -81,6 +81,7 @@ const Upload = () => {
       session !== "" &&
       questionFile !== ""
     ) {
+        window.scrollTo(0, 0);
       setbol(true);
       axios
         .post(
@@ -151,7 +152,7 @@ const Upload = () => {
       </div>
       <div className="grid lg:grid-cols-2 lg:pt-20 lg:max-w-[1020px]   xl:pl-0 xl:pr-0 lg:mx-auto  pt-8   md:pt-10">
         {bol ? (
-          <div className="absolute flex justify-center items-center z-10 top-0  lg:h-[100%] md:h-screen h-[130vh] bg-white/75 left-0 right-0">
+          <div className="absolute flex justify-center items-center z-10 top-0   h-screen bg-white/75 left-0 right-0">
             <BeatLoader color="#16A34A" size={30} />
           </div>
         ) : (
