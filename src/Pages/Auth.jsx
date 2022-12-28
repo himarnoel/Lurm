@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiOutlineKey } from "react-icons/hi";
 import { useFormik } from "formik";
@@ -50,14 +50,14 @@ const Login = () => {
   return (
     <div>
       <div className="  ">
-        <ToastContainer position="top-right" autoClose={2500} />
+      
         <div className="h-screen w-screen flex  items-center flex-col sm:pt-0 justify-between">
           {/*NAVIGATION BAR */}
           <Nav />
           <div className="">
-            <div className="flex flex-col items-center justify-evenly  mx-auto  w-[20rem] h-[20rem]  md:w-[26rem] md:h-[22rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg ">
+            <div className="flex flex-col items-center justify-center  mx-auto  w-[20rem] h-[20rem]  md:w-[26rem] md:h-[22rem] lg:w-[22rem] lg:h-[20rem] sm:w-[24rem] xl:h-[20rem] xl:w-[25rem]   bg-white shadow-lg rounded-lg ">
               <form
-                className="xl:w-[22rem] w-[17rem] flex flex-col items-center justify-evenly h-full md:w-[20rem]"
+                className="xl:w-[22rem] w-[17rem]  flex flex-col items-center justify-evenly h-full md:w-[20rem]"
                 onSubmit={formik.handleSubmit}
               >
                 <div className="relative  w-full mt-4 xl:mt-5">
@@ -120,7 +120,7 @@ const Login = () => {
                     ""
                   )}
                 </div>
-              
+
                 <button
                   type="submit"
                   className=" py-1 lg:py-3 w-full bg-[#2F8B33] rounded-lg  text-white text-sm"

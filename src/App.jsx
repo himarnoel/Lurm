@@ -9,6 +9,7 @@ import { Routes, Navigate, } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.min.css";
 
 import Login from "./Pages/Auth";
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -17,6 +18,7 @@ function App() {
   const token = localStorage.getItem("token");
   return (
     <div className=" ">
+        <ToastContainer position="top-right" autoClose={2500} />
       <Routes>
         <Route path="/" element={<Home />} />
       

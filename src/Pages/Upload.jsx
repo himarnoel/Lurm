@@ -301,9 +301,6 @@ const Upload = () => {
                 <option value="" disabled selected hidden className=" ">
                   Select Session
                 </option>
-                <option className="text-black" value="2010/2011">
-                  2010/2011
-                </option>
                 <option className="text-black" value="2011/2012">
                   2011/2012
                 </option>
@@ -318,6 +315,27 @@ const Upload = () => {
                 </option>
                 <option className="text-black" value="2015/2016">
                   2015/2016
+                </option>
+                <option className="text-black" value="2016/2017">
+                  2016/2017
+                </option>
+                <option className="text-black" value="2017/2018">
+                  2017/2018
+                </option>
+                <option className="text-black" value="2018/2019">
+                  2018/2019
+                </option>
+                <option className="text-black" value="2019/2020">
+                  2019/2020
+                </option>
+                <option className="text-black" value="2020/2021">
+                  2020/2021
+                </option>
+                <option className="text-black" value="2021/2022">
+                  2021/2022
+                </option>
+                <option className="text-black" value="2022/2023">
+                  2022/2023
                 </option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
