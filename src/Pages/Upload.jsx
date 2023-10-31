@@ -94,7 +94,7 @@ const Upload = () => {
         .post(
           `${endpoint}pastquestion/upload/`,
           {
-            courseCode: courseCode.toUpperCase(),
+            courseCode: courseCode.toUpperCase,
             semester,
             level,
             session,
@@ -145,7 +145,7 @@ const Upload = () => {
     <>
       <div>
         <div className="fixed py-2 px-5 lg:py-1 md:px-2  bg-white shadow-sm md:shadow-md lg:shadow-lg   w-full">
-          <div className="flex font-bold  items-center justify-between container mx-auto">
+          <div className="flex font-bold  items-center justify-between lg:max-w-[1024px] mx-auto">
             <div className="flex items-center">
               <img src={logo} alt="" className="object-contain w-10 lg:" />{" "}
               <span className="flex flex-col leading-[1.2rem] pl-2">
@@ -155,14 +155,14 @@ const Upload = () => {
             </div>
             <button
               onClick={() => Logout()}
-              className=" p-2 text-sm lg:px-8 rounded bg-[#2E8B45] text-white  font-normal"
+              className=" p-2 text-sm lg:p-2 rounded bg-[#2E8B45] text-white  font-normal"
             >
               Logout
             </button>
           </div>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 lg:pt-20 container  xl:pl-0 xl:pr-0 lg:mx-auto  pt-8   md:pt-10">
+      <div className="grid lg:grid-cols-2 lg:pt-20 lg:max-w-[1024px] xl:pl-0 xl:pr-0 lg:mx-auto  pt-8   md:pt-10">
         {bol ? (
           <div className="fixed flex justify-center items-center z-10 top-0   h-screen bg-white/75 left-0 right-0">
             <BeatLoader color="#16A34A" size={30} />
