@@ -155,7 +155,7 @@ const Upload = () => {
             </div>
             <button
               onClick={() => Logout()}
-              className=" p-2 text-sm lg:p-2 rounded bg-[#2E8B45] text-white  font-normal"
+              className=" p-2 text-sm lg:px-8 rounded bg-[#2E8B45] text-white  font-normal"
             >
               Logout
             </button>

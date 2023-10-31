@@ -102,8 +102,8 @@ const Login = () => {
                     placeholder="●●●●●●●"
                     className={
                       formik.errors.password && formik.touched.password
-                        ? `border-red-500 border   p-2 rounded-md w-full focus:outline-red-500 `
-                        : `border p-2 rounded-md w-full  focus:border-gray-500  placeholder:text-3xl focus:outline-none`
+                        ? `border-red-500 border   p-2 rounded-md w-full  focus:outline-none `
+                        : `border p-2 rounded-md w-full    focus:outline-none`
                     }
                     type="password"
                     onChange={formik.handleChange}
