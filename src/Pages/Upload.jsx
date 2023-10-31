@@ -121,7 +121,18 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           usesession("");
-          toast.error("Upload Unsucessful");
+          if (
+            error.response.data[0] ===
+            "You can upload the same past questions more than once"
+          ) {
+            toast.error("Duplicated upload not allowed", {
+              toastId: 3,
+            });
+          } else {
+            toast.error("Upload Unsucessful", {
+              toastId: 3,
+            });
+          }
           console.log(error);
         });
     }
@@ -132,7 +143,6 @@ const Upload = () => {
   };
   return (
     <>
-    
       <div>
         <div className="fixed py-2 px-5 lg:py-1 md:px-2 bg-white shadow-sm md:shadow-md lg:shadow-lg   w-full">
           <div className="flex font-bold  items-center justify-between  lg:px-[9.5rem]">
