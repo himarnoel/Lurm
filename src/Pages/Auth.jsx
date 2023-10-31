@@ -72,7 +72,7 @@ const Login = () => {
                     placeholder="e.g CSC_100"
                     className={
                       formik.errors.username && formik.touched.username
-                        ? `border-red-500 border p-2 lg:p-[0.4rem] rounded-md w-full focus:outline-red-500`
+                        ? `border-red-500 border p-2 lg:p-[0.4rem] rounded-md w-full focus:outline-none`
                         : `border p-2 rounded-md w-full focus:border-gray-500  lg:p-[0.4rem] focus:outline-none `
                     }
                     type="text"
@@ -102,8 +102,8 @@ const Login = () => {
                     placeholder="●●●●●●●"
                     className={
                       formik.errors.password && formik.touched.password
-                        ? `border-red-500 border   p-2 rounded-md w-full  focus:outline-none `
-                        : `border p-2 rounded-md w-full    focus:outline-none`
+                        ? `border-red-500 border p-2 lg:p-[0.4rem] rounded-md w-full focus:outline-none`
+                        : `border p-2 rounded-md w-full focus:border-gray-500  lg:p-[0.4rem] focus:outline-none `
                     }
                     type="password"
                     onChange={formik.handleChange}
