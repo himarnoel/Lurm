@@ -4,5 +4,4 @@ export const basicSchema = yup.object().shape({
   password: yup.string().required("Please fill up this field"),
 });
 
-export const endpoint =
-  "https://lurm-backend-production.up.railway.app/api/v1/";
+export const endpoint = "https://lurm.onrender.com/api/v1/";

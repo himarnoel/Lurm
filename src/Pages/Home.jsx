@@ -23,7 +23,7 @@ const Home = () => {
       axios
         .get(`${endpoint}pastquestion/?search=${val}`)
         .then((res) => {
-          // console.log(res);
+          console.log(res);
           if (val != "") {
             setarray(res.data);
             setbol(false);
@@ -33,12 +33,12 @@ const Home = () => {
           }
         })
         .catch((e) => {
-          // console.log(e);
+          console.log(e);
           if (e.code.toString() == "ERR_NETWORK") {
-            // toast.error(e.message.toString(), {
-            //   position: "top-right",
-            //   hideProgressBar: false,
-            // });
+            toast.error(e.message.toString(), {
+              position: "top-right",
+              hideProgressBar: false,
+            });
             setbol(false);
           }
           setbol(false);
