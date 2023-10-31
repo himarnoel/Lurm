@@ -29,6 +29,7 @@ const Upload = () => {
   const [lev, setlev] = useState(false);
   const [ses, setses] = useState(false);
   const [ques, setques] = useState(false);
+  const [messagecoursecode, setmessagecoursecode] = useState("");
   ///////////
 
   const handleClick = () => {
@@ -49,18 +50,24 @@ const Upload = () => {
     console.log(conver);
     if (conver > 1.0) {
       usedisp(" ");
-      toast.error("File size too large");
+      toast.error("File size too large", {
+        toastId: 5,
+      });
     } else {
       usedisp("ok");
       console.log("fileupload");
     }
   };
   const uploaded = () => {
-  
     const token = localStorage.getItem("token");
     console.log(token);
     if (courseCode == "") {
       setcourse(true);
+      setmessagecoursecode("Fill up this space");
+    }
+    if (courseCode.length > 6) {
+      setcourse(true);
+      setmessagecoursecode("length is greater than 6");
     }
     if (semester == "") {
       setsemes(true);
@@ -81,7 +88,7 @@ const Upload = () => {
       session !== "" &&
       questionFile !== ""
     ) {
-        window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
       setbol(true);
       axios
         .post(
@@ -104,11 +111,7 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           usesession("");
-          if (response.status == 201) {
-            toast.success("Upload Sucessful");
-          } else {
-            toast.error("Upload Sucessful");
-          }
+          toast.success("Upload Sucessful", { toastId: 1 });
         })
         .catch((error) => {
           setbol(false);
@@ -119,7 +122,6 @@ const Upload = () => {
           usedisp(""); // to remove
           usesession("");
           toast.error("Upload Unsucessful");
-
           console.log(error);
         });
     }
@@ -130,7 +132,7 @@ const Upload = () => {
   };
   return (
     <>
-      <ToastContainer position="top-center" autoClose={3000} />
+    
       <div>
         <div className="fixed py-2 px-5 lg:py-1 md:px-2 bg-white shadow-sm md:shadow-md lg:shadow-lg   w-full">
           <div className="flex font-bold  items-center justify-between  lg:px-[9.5rem]">
@@ -152,7 +154,7 @@ const Upload = () => {
       </div>
       <div className="grid lg:grid-cols-2 lg:pt-20 lg:max-w-[1020px]   xl:pl-0 xl:pr-0 lg:mx-auto  pt-8   md:pt-10">
         {bol ? (
-          <div className="absolute flex justify-center items-center z-10 top-0   h-screen bg-white/75 left-0 right-0">
+          <div className="fixed flex justify-center items-center z-10 top-0   h-screen bg-white/75 left-0 right-0">
             <BeatLoader color="#16A34A" size={30} />
           </div>
         ) : (
@@ -160,7 +162,7 @@ const Upload = () => {
         )}
 
         <div className="lg:mx-0 mx-auto">
-          <h1 className="lg:mb-9 lg:mt-2 text-center mb-5 lg:text-start">
+          <h1 className="lg:mb-9 lg:mt-2 font-bold text-center mb-5 lg:text-start">
             Upload the PDF file with the information needed
           </h1>
 
@@ -168,7 +170,7 @@ const Upload = () => {
             onClick={() => handleClick()}
             className={
               ques
-                ? " mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-red-500 h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
+                ? " mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-red-500 h-72 w-64 md:w-72   rounded-lg flex flex-col justify-center items-center text-center"
                 : " mx-auto lg:mx-0 border-dashed bg-[#DFE8E1] border-2 border-[#2F8D46] h-72 w-64 md:w-72  rounded-lg flex flex-col justify-center items-center text-center"
             }
           >
@@ -194,7 +196,7 @@ const Upload = () => {
         </div>
         <div className="grid lg:gap-x-12 xl:gap-x-12  gap-y-5 mb-5 md:grid-cols-2 md:mt-20 md:mb-5 lg:gap-y-24  md:justify-items-center md:items-center  lg:grid-cols-2 mt-5 justify-center lg:justify-items-center lg:items-center  lg:mx-0">
           <div className="">
-            <label htmlFor="">Course</label>
+            <label htmlFor="">Course Code</label>
             <div className="relative w-64">
               <input
                 onClick={() => setcourse(false)}
@@ -203,14 +205,14 @@ const Upload = () => {
                 value={courseCode}
                 className={
                   course
-                    ? " text-gray-900  border border-red-500 focus:border-red-500 w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
-                    : " text-gray-900  border  w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight "
+                    ? " text-gray-900  border border-red-500 focus:border-red-500 w-full focus:outline-none appearance-none px-4 py-2 pr-8 rounded leading-tight "
+                    : " text-gray-900  border  w-full   appearance-none px-4 py-2 pr-8 rounded leading-tight focus:outline-none "
                 }
                 id="inline-full-name"
                 type="text"
               />
             </div>
-            {course ? <p className="text-red-500">Fill up this space</p> : ""}
+            {course ? <p className="text-red-500">{messagecoursecode}</p> : ""}
           </div>
           <div className="holder">
             <label htmlFor="">Semester</label>
@@ -222,8 +224,8 @@ const Upload = () => {
                 required
                 className={
                   semes
-                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
-                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight focus:outline-none  text-gray-900"
+                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900 focus:outline-none"
                 }
               >
                 <option value="" disabled selected hidden className=" ">
@@ -254,8 +256,8 @@ const Upload = () => {
                 required
                 className={
                   lev
-                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
-                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded focus:outline-none  leading-tight  text-gray-900"
+                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight focus:outline-none text-gray-900"
                 }
               >
                 <option value="" disabled selected hidden className=" ">
@@ -295,8 +297,8 @@ const Upload = () => {
                 required
                 className={
                   ses
-                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
-                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900"
+                    ? " appearance-none w-full border-red-500  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900 focus:outline-none"
+                    : " appearance-none w-full  border px-4 py-2 pr-8 rounded  leading-tight  text-gray-900 focus:outline-none"
                 }
               >
                 <option value="" disabled selected hidden className=" ">
@@ -338,6 +340,9 @@ const Upload = () => {
                 <option className="text-black" value="2022/2023">
                   2022/2023
                 </option>
+                <option className="text-black" value="2023/2024">
+                  2023/2024
+                </option>{" "}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[#D1D1D1]">
                 <RiArrowDownSLine size={26} />

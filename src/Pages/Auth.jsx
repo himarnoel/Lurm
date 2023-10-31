@@ -50,7 +50,6 @@ const Login = () => {
   return (
     <div>
       <div className="  ">
-      
         <div className="h-screen w-screen flex  items-center flex-col sm:pt-0 justify-between">
           {/*NAVIGATION BAR */}
           <Nav />
@@ -74,7 +73,7 @@ const Login = () => {
                     className={
                       formik.errors.username && formik.touched.username
                         ? `border-red-500 border p-2 lg:p-[0.4rem] rounded-md w-full focus:outline-red-500`
-                        : `border p-2 rounded-md w-full focus:border-gray-500  lg:p-[0.4rem] `
+                        : `border p-2 rounded-md w-full focus:border-gray-500  lg:p-[0.4rem] focus:outline-none `
                     }
                     type="text"
                     onChange={formik.handleChange}
@@ -100,11 +99,11 @@ const Login = () => {
                   <input
                     name="password"
                     id="password"
-                    placeholder="......"
+                    placeholder="●●●●●●●"
                     className={
                       formik.errors.password && formik.touched.password
                         ? `border-red-500 border   p-2 rounded-md w-full focus:outline-red-500 `
-                        : `border p-2 rounded-md w-full  focus:outline-[#D1D1D1] placeholder:text-3xl  `
+                        : `border p-2 rounded-md w-full  focus:border-gray-500  placeholder:text-3xl focus:outline-none`
                     }
                     type="password"
                     onChange={formik.handleChange}
