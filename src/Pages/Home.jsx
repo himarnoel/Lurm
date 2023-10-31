@@ -23,7 +23,6 @@ const Home = () => {
       axios
         .get(`${endpoint}pastquestion/?search=${val}`)
         .then((res) => {
-          console.log(res);
           if (val != "") {
             setarray(res.data);
             setbol(false);
@@ -37,6 +36,7 @@ const Home = () => {
           if (e.code.toString() == "ERR_NETWORK") {
             toast.error(e.message.toString(), {
               position: "top-right",
+              toastId: 1,
               hideProgressBar: false,
             });
             setbol(false);
