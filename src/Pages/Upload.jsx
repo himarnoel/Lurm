@@ -38,7 +38,6 @@ const Upload = () => {
   };
   const handleChange = (event) => {
     let fileUploaded = event.target.files[0];
-    console.log("sdfaadfsdf");
     const reader = new FileReader();
     reader.readAsDataURL(fileUploaded);
     reader.onload = () => {
@@ -65,10 +64,10 @@ const Upload = () => {
       setcourse(true);
       setmessagecoursecode("Fill up this space");
     }
-    if (courseCode.length > 6) {
-      setcourse(true);
-      setmessagecoursecode("length is greater than 6");
-    }
+    // if (courseCode.length > 6) {
+    //   setcourse(true);
+    //   setmessagecoursecode("length is greater than 6");
+    // }
     if (semester == "") {
       setsemes(true);
     }
@@ -94,7 +93,7 @@ const Upload = () => {
         .post(
           `${endpoint}pastquestion/upload/`,
           {
-            courseCode: courseCode.toUpperCase,
+            courseCode: courseCode.slice(0, 6).toUpperCase(),
             semester,
             level,
             session,
@@ -121,18 +120,19 @@ const Upload = () => {
           usequestionFile(""); // to remove file
           usedisp(""); // to remove
           usesession("");
-          if (
-            error.response.data[0] ===
-            "You can upload the same past questions more than once"
-          ) {
-            toast.error("Duplicated upload not allowed", {
-              toastId: 3,
-            });
-          } else {
-            toast.error("Upload Unsucessful", {
-              toastId: 3,
-            });
-          }
+          // if (
+          //   error.response.data[0] ===
+          //   "You can't upload the same past questions more than once"
+          // ) {
+          //   toast.error("Duplicated upload not allowed", {
+          //     toastId: 3,
+          //   });
+          // } else {
+          //   toast.error("Upload Unsucessful", {
+          //     toastId: 3,
+          //   });
+          // }
+          toast.error(error.response.data[0] === undefined ? error.response.data[Object.keys(error.response.data)[0]][0] : error.response.data[0])
           console.log(error);
         });
     }
@@ -198,8 +198,8 @@ const Upload = () => {
             />
 
             {disp != "ok" ? <p>Click to Browse</p> : ""}
-            {disp != "ok" ? <p>Files should be not</p> : ""}
-            {disp != "ok" ? <p> more than 1mb</p> : ""}
+            {disp != "ok" ? <p>Max file size: 1mb</p> : ""}
+            {disp != "ok" ? <p> Supported file type: pdf</p> : ""}
             {disp == "ok" ? <p>{filename}</p> : ""}
           </div>
           {ques ? <p className="text-red-500">Upload a file</p> : ""}
@@ -212,7 +212,7 @@ const Upload = () => {
                 onClick={() => setcourse(false)}
                 placeholder="e.g CSC211"
                 onChange={(e) => usecourseCode(e.target.value)}
-                value={courseCode}
+                value={courseCode.length <= 6 ? courseCode.toUpperCase() : courseCode.slice(0, 6).toUpperCase()}
                 className={
                   course
                     ? " text-gray-900  border border-red-500 focus:border-red-500 w-full focus:outline-none appearance-none px-4 py-2 pr-8 rounded leading-tight "
