@@ -48,7 +48,7 @@ const Home = () => {
   };
   const Download = (file) => {
     // console.log(file.questionFile);
-    saveAs(file.questionFile, file.courseCode);
+    saveAs(file.questionFile, file.courseId);
     // console.log(file.questionFile);
   };
   return (
